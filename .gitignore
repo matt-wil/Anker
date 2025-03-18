@@ -1,0 +1,21 @@
+# Python .venv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env # If you have environment variables, be VERY careful with this. Consider alternative methods for sensitive data.
+.DS_Store # macOS specific
+
+# React.js frontend (node_modules)
+frontend/node_modules/
+frontend/build/
+frontend/.DS_Store # macOS specific
+frontend/.env.local # If you have local environment variables, be VERY careful with this.
+
+# General
+*.log
+*.swp
+*.swo
+*~
