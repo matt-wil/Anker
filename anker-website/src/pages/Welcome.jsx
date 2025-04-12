@@ -38,7 +38,7 @@ const Welcome = () => {
 
       <h1 id="title-1" className='text-9xl'>Tattoo</h1>
       <h1 id="title-2" className='text-9xl'>Piercing</h1>
-      <h1 id="title-3" className='text-9xl'>Cosmetic</h1>
+      <h1 id="title-3" className='text-9xl'>Beratung</h1>
     </div>
 
 

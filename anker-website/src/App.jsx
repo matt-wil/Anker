@@ -1,8 +1,9 @@
 import './App.css'
-import Welcome from './components/Welcome'
-import Home from './components/Home'
+import Welcome from './pages/Welcome'
+import Layout from './components/Layout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PageTransition from './effects/PageTransition'
+import Home from './Pages/Home'
 
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
         <PageTransition>
           <Routes>
               <Route path='/' element={<Welcome />} />
-              <Route path="/home" element={<Home />} />
+                <Route path="/home" element={<Layout />} >
+                <Route path="/home" element={<Home />} />
+              </Route>
           </Routes>
         </PageTransition>
       </BrowserRouter>

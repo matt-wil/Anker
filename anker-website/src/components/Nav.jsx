@@ -5,12 +5,9 @@ import { useState } from 'react'
 const NavLinks = () => {
   return (
     <>
-          <NavLink to="/home">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/tattoo">Tattoo</NavLink>
-          <NavLink to="/piercing">Piercing</NavLink>
-          <NavLink to="/cosmetic">Cosmetic</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+      <NavLink to="/tattoo">Tattoo</NavLink>
+      <NavLink to="/piercing">Piercing</NavLink>
+      <NavLink to="/cosmetic">Cosmetic</NavLink>
     </>
   )
 }
