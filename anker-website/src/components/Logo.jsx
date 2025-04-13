@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
+import myLogo from "../assets/BlackAnkerLogo.svg"
+
 const Logo = () => {
   return (
-    <div className='logo h-12 w-12 m-5'>
-      <Link to="/"><img src="./tattoo_gun.png" alt="tattoo gun" /></Link>
+    <div className='m-20 p-20 h-16 w-16 ml-4 sm:ml-6 lg:ml-8'>
+      <Link to="/"><img src={myLogo} alt="tattoo gun" /></Link>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { Link } from "react-router-dom"
 import AnimatedSplitLink from "../effects/AnimatedSplitLink"
+import {useGSAP} from "@gsap/react"
 
 const Welcome = () => {
   const comp = useRef(null)
@@ -30,6 +31,23 @@ const Welcome = () => {
     return () => cxt.revert()
   },[])
 
+  useGSAP(() => {
+    const t2 = gsap.timeline({repeat: -1, yoyo: true})
+    t2.to('.dein-anker', {
+      repeat: -1,
+      yoyo: true,
+      duration: 1,
+      textShadow: "0 0 5px rgba(255, 204, 0, 0.8), 0 0 10px rgba(255, 204, 0, 0.6), 0 0 15px rgba(255, 204, 0, 0.4)",
+    }).to('.dein-anker', {
+      textShadow: "0 0 10px rgba(255, 204, 0, 1), 0 0 15px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.6)",
+      duration: 1
+    }).to('.dein-anker', {
+      scale: 1.1,
+      duration: 2,
+      ease: "power1.inOut"
+    })
+  })
+
 
   return (
     <div className='relative' ref={comp}>
@@ -44,7 +62,7 @@ const Welcome = () => {
 
       <div className='h-screen flex bg-gray-950 justify-center place-items-center'>
           <AnimatedSplitLink>
-            <h1 className='text-9xl font-bold text-white font-grotesk hover:cursor-pointer'>
+            <h1 className='dein-anker text-9xl font-bold text-white font-grotesk hover:cursor-pointer'>
             <Link to="/home">Dein Anker</Link>
             </h1>
           </AnimatedSplitLink>

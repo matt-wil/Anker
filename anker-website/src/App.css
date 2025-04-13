@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Space%20Grotesk:400');
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+/*  change this for scaling  */
+  --m: 4rem;
+  
+  --red: #FF6565;
+  --pink: #FF64F9;
+  --purple: #6B5FFF;
+  --blue: #4D8AFF;
+  --green: #5BFF89;
+  --yellow: #FFEE55;
+  --orange: #FF6D1B;
+  
+}
+
+.glowing-button{
+  border: calc(0.08 * var(--m)) solid transparent;
+  position: relative;
+  color: #F3F3F3;
+  font-family: 'Space Grotesk';
+  font-size: var(--m);
+  border-radius: calc(0.7 * var(--m));
+  padding: calc(0.5 * var(--m)) calc(1 * var(--m));
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  
+  background:linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),  linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+}
+
+.glowing-button::before {
+  content: '';
+  background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+  height: 30%;
+  width: 60%;
+  position: absolute;
+  bottom: -20%;
+  z-index: -5;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+  filter: blur(calc(0.8 * var(--m)));
+}
+
+.glowing-button:hover, .glowing-button:hover::before {
+  animation: animate 0.5s infinite linear;
+}
+
+@keyframes animate {
+  0% {background-position: 0}
+  100% {background-position: 200%}
+}
+
+@media screen and (max-width: 1000px) {
+  :root {
+    --m: 2rem;
+  }
+}
+
+.glowing-text {
+    color: white; /* Or your desired base text color */
+    text-shadow:
+      0 0 5px rgba(255, 204, 0, 0.8), /* Inner glow */
+      0 0 10px rgba(255, 204, 0, 0.6), /* Medium glow */
+      0 0 15px rgba(255, 204, 0, 0.4); /* Outer glow */
+    animation: text-glow 1.5s infinite alternate; /* Adjust duration and iteration as needed */
+  }
+  
+  @keyframes text-glow {
+    from {
+      text-shadow:
+        0 0 5px rgba(255, 204, 0, 0.8),
+        0 0 10px rgba(255, 204, 0, 0.6),
+        0 0 15px rgba(255, 204, 0, 0.4);
+    }
+    to {
+      text-shadow:
+        0 0 10px rgba(255, 204, 0, 1),   /* More intense inner glow */
+        0 0 15px rgba(255, 204, 0, 0.8), /* More intense medium glow */
+        0 0 20px rgba(255, 204, 0, 0.6); /* More intense outer glow */
+    }
+  }
+
+  

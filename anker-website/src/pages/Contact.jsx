@@ -1,70 +1,32 @@
 import React, { useState } from 'react';
 
 const Contact = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [date_time, setDateTime] = useState('');
-  const [appointment_type, setAppointmentType] = useState('');
-  const [duration, setDuration] = useState('');
-
-  const handleChangeName = (e) => setName(e.target.value);
-  const handleChangeEmail = (e) => setEmail(e.target.value);
-  const handleChangePhone = (e) => setPhone(e.target.value);
-  const handleChangeDateTime = (e) => setDateTime(e.target.value);
-  const handleChangeAppointmentType = (e) => setAppointmentType(e.target.value);
-  const handleChangeDuration = (e) => setDuration(e.target.value);
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    setName('');
-    setEmail('');
-    setPhone('');
-    setDateTime('');
-    setAppointmentType('');
-    setDuration('');
-
-    try {
-      const res = await fetch(`${API_URL}/appointments`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          phone: phone,
-          date_time: date_time,
-          appointment_type: appointment_type,
-          duration: duration,
-        }),
-      });
-
-      if (res.ok) {
-        getAppointments(); // Assuming getAppointments is defined elsewhere
-      } else {
-        console.error('Failed to submit appointment');
-      }
-    } catch (error) {
-      console.error('Error submitting appointment:', error);
-    }
-  }
-
   return (
     <>
-      <h2>Contact</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={name} onChange={handleChangeName} placeholder="Name" />
-        <input type="text" value={email} onChange={handleChangeEmail} placeholder="Email" />
-        <input type="text" value={phone} onChange={handleChangePhone} placeholder="Phone" />
-        <input type="text" value={date_time} onChange={handleChangeDateTime} placeholder="Date and Time" />
-        <input type="text" value={appointment_type} onChange={handleChangeAppointmentType} placeholder="Appointment Type" />
-        <input type="text" value={duration} onChange={handleChangeDuration} placeholder="Duration" />
-        <button type="submit">Submit</button>
+    <div>
+      <div>
+        <h1>Kontakt</h1>
+      </div>
+      <div>
+        <div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2670.075038012869!2d7.845996376530922!3d47.99293697122794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911c9f3ba91f21%3A0xd7b8fd0d6016ea0e!2sAnker%20Tattoo%20%26%20Piercing!5e0!3m2!1sde!2sde!4v1744477504960!5m2!1sde!2sde" width="600" height="200" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div>
+        <h2>Öffnungszeiten</h2>
+        <div>
+          <p>Dienstag - Freitag: 12:00 - 18:00 Uhr</p>
+          <p>Samstag: 12:00 - 16:00 Uhr</p>
+          <p>Sonntag & Montag: Geschlossen</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form>
+        Email contact form
       </form>
+    </div>
     </>
   );
 };
-
 export default Contact;
