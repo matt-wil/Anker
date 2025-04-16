@@ -3,8 +3,15 @@
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+}
+
+*:hover {
+  outline:1px red solid;
+}
+
+body {
+  background-image: url(assets/coolbackgrounds-fractalize-bleach.png);
+
 }
 
 :root {
@@ -18,7 +25,39 @@
   --green: #5BFF89;
   --yellow: #FFEE55;
   --orange: #FF6D1B;
-  
+  --white: #f0f0f0;
+}
+
+.white-glowing-button {
+  border: calc(0.08 * var(--m)) solid transparent;
+  position: relative;
+  color: #F3F3F3;
+  font-family: 'Space Grotesk';
+  font-size: var(--m);
+  border-radius: calc(0.7 * var(--m));
+  padding: calc(0.5 * var(--m)) calc(1 * var(--m));
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  background: linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--white), var(--yellow));
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+}
+
+.white-glowing-button::before {
+  content: '';
+  background: linear-gradient(90deg, var(--white), var(--yellow));
+  height: 30%;
+  width: 60%;
+  position: absolute;
+  bottom: -20%;
+  z-index: -5;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+  filter: blur(calc(0.8 * var(--m)));
 }
 
 .glowing-button{
@@ -54,6 +93,10 @@
 }
 
 .glowing-button:hover, .glowing-button:hover::before {
+  animation: animate 0.5s infinite linear;
+}
+
+.glowing-button:hover, .white-glowing-button:hover::before {
   animation: animate 0.5s infinite linear;
 }
 

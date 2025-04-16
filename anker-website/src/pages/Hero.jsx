@@ -13,7 +13,7 @@ const Hero = () => {
           <p className="text-lg heading-grotesk">Willkommen bei Anker Tattoo & Piercing in Freiburg. Wir bieten professionelle und hochwertige Tattoos sowie Piercings in einem hygienischen und kreativen Umfeld. Bei uns stehen Ihre individuellen Wünsche und Ihre Zufriedenheit an erster Stelle.</p>
           </div>
         <div>          
-        <Link to="contact"><button className='glowing-button'>Kontakt</button></Link>
+        <Link to="contact"><button className='white-glowing-button'>Kontakt</button></Link>
         </div>
         </div>
         <div className='flex flex-col items-end justify-start'>

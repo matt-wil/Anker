@@ -1,3 +1,4 @@
+import Calendar from '../components/Calendar'
 import React, { useState } from 'react';
 
 const Contact = () => {

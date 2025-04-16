@@ -34,7 +34,7 @@ const MainNavLinks = ({toggleMainBarNav, isMainOpen}) => {
       <NavLink className="hover:animate-pulse" to="piercing">Piercing</NavLink>
       <NavLink className="hover:animate-pulse" to="contact">Kontakt</NavLink>
       <div className='relative'>
-      <button className="cursor-pointer" onClick={toggleMainBarNav}>{isMainOpen ? <X /> : "Mehr"}</button>
+      <button className="cursor-pointer" onClick={toggleMainBarNav}>{isMainOpen ? <X /> : <Menu/>}</button>
       {isMainOpen && (
         <div className='absolute flex flex-col gap-2 mr-5 top-8 left-0 mt-1 py-2 w-32 z-10'>
           <ExtraMainNavLinks />

@@ -11,6 +11,8 @@ import Beratung from './pages/Beratung'
 import Hero from './pages/Hero'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Datenschutz from './pages/Datenschutz'
+import Impressum from './pages/Impressum'
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
                   <Route path="beratung" element={<Beratung />} />
                   <Route path="contact" element={<Contact />} />
                   <Route path="about" element={<About />} />
+                  <Route path='datenschutz' element={<Datenschutz />} />
+                  <Route path="impressum" element={<Impressum />} />
               </Route>
           </Routes>
         </PageTransition>

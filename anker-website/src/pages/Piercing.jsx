@@ -7,6 +7,9 @@ const Piercing = () => {
       <div>
         <button className="glowing-button">Gallery</button>
       </div>
+      <div>
+        <button className="glowing-button">Piercing Calendar</button>
+      </div>
     </div>
   )
 }
