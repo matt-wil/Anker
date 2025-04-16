@@ -1,6 +1,5 @@
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
 
 const events = [
   { title: 'Meeting', start: new Date() }
@@ -9,9 +8,8 @@ const events = [
 export default function Calendar() {
   return (
     <div>
-      <h1>Anker Piercing Kalendar</h1>
       <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin]}
+        plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
         weekends={false}
         events={events}

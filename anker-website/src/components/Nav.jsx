@@ -8,10 +8,12 @@ const NavLinks = () => {
       <NavLink className="hover:animate-pulse" to="tattoo">Tattoo</NavLink>
       <NavLink className="hover:animate-pulse" to="piercing">Piercing</NavLink>
       <NavLink className="hover:animate-pulse" to="contact">Kontakt</NavLink>
-      <NavLink className="hover:animate-pulse" to="beratung">Beratung</NavLink>
       <NavLink className="hover:animate-pulse" to="team">Team</NavLink>
       <NavLink className="hover:animate-pulse" to="about">Über uns</NavLink>
       <NavLink className="hover:animate-pulse" to="/home">Home</NavLink>
+      <NavLink className={"hover:animate-pulse"} to="datenschutz">Datenschutz</NavLink>
+      <NavLink className={"hover:animate-pulse"} to="impressum">Impressum</NavLink>
+      <NavLink className={"hover:animate-pulse"} to="events-calendar">Events</NavLink>
     </>
   )
 }
@@ -19,10 +21,9 @@ const NavLinks = () => {
 const ExtraMainNavLinks = () => {
   return (
     <>
-      <NavLink className="hover:animate-pulse" to="beratung">Beratung</NavLink>
       <NavLink className="hover:animate-pulse" to="team">Team</NavLink>
       <NavLink className="hover:animate-pulse" to="about">Über uns</NavLink>
-      <NavLink className="hover:animate-pulse" to="/home">Home</NavLink>
+      <NavLink className={"hover:animate-pulse"} to="events-calendar">Events</NavLink>
     </>
   )
 }
@@ -30,6 +31,7 @@ const ExtraMainNavLinks = () => {
 const MainNavLinks = ({toggleMainBarNav, isMainOpen}) => {
   return (
     <>
+      <NavLink className="hover:animate-pulse" to="/home">Home</NavLink>
       <NavLink className="hover:animate-pulse" to="tattoo">Tattoo</NavLink>
       <NavLink className="hover:animate-pulse" to="piercing">Piercing</NavLink>
       <NavLink className="hover:animate-pulse" to="contact">Kontakt</NavLink>

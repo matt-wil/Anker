@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       {/*<div className='flex justify-center mb-0'><Video /></div> */}
-      <div className='flex flex-row justify-center items-center h-screen' >
+      <div className='' >
         <div className='flex flex-col justify-center items-center'>
           <div className=''>
             <h1 className='body-noto text-9xl font-bold  '>Anker<br/>Freiburg</h1>

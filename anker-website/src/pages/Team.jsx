@@ -1,8 +1,10 @@
 const Team = () => {
   return (
-    <>
+    <div>
         <div className="flex flex-col justify-center items-center gap-5">
-            <img src="https://picsum.photos/200/300?grayscale" alt="anker-team"/>
+          <div>
+           <img src="https://picsum.photos/200/300?grayscale" alt="anker-team"/>
+          </div>
             <h1 className="text-7xl m-15">Anker Crew</h1>
             <div>
                 <p>
@@ -10,7 +12,7 @@ const Team = () => {
                 </p>
             </div>
         </div>
-    </>
+    </div>
   )
 }
 
