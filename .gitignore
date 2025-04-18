@@ -19,3 +19,5 @@ frontend/.env.local # If you have local environment variables, be VERY careful w
 *.swp
 *.swo
 *~
+
+possibleAssets
