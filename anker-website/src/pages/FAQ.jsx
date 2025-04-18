@@ -3,7 +3,7 @@ import React from 'react'
 const FAQ = () => {
   return (
         <div className='flex flex-col justify-center items-center text-center'>
-            <h2 className='text-7xl mb-4'>Häufige Fragen</h2>
+            <h2 className='text-7xl mb-4 font-bold'>Häufige Fragen</h2>
             <div className='m-10'>
                 <h3 className='text-4xl text-center mb-4'>Wie lange dauert ein Tattoo?</h3>
                 <p className='text-center max-w-150'>Die Dauer eines Tattoos hängt von der Größe und Komplexität des Designs ab. Kleinere Tattoos können in 1-2 Stunden fertiggestellt werden, während größere und detailliertere Arbeiten mehrere Sitzungen erfordern können.</p>

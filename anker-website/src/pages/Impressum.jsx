@@ -1,7 +1,7 @@
 const Impressum = () => {
     return (
       <div>
-          <h2 className="text-7xl">Impressum</h2>
+          <h2 className="text-7xl font-bold">Impressum</h2>
           <div>
           <p>
   Dienstanbieter / Verantwortlicher i.S.d. §§ 6 TDG, 6 MDStV:

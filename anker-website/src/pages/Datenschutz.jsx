@@ -1,7 +1,7 @@
 const Datenschutz = () => {
   return (
     <div>
-        <h2 className="text-7xl">Datenschutz</h2>
+        <h2 className="text-7xl font-bold">Datenschutz</h2>
         <div>
         <p>
         Hinweis zum Umgang mit Ihren Daten

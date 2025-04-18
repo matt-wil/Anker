@@ -1,25 +1,25 @@
+import { getArtistsByProfession } from "../api/artists"
 import { Link } from "react-router-dom"
+import ArtistCard from "../components/ArtistCard"
+import { useState, useEffect } from "react";
 
-const Piercing = () => {
+export default function Tattooists() {
+  const [artists, setArtists] = useState([]);
+
+  useEffect(() => {
+    getArtistsByProfession('Piercer').then(setArtists);
+  }, []);
+  console.log(artists)
+
+
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="flex flex-row gap-2">
-        <img src="https://picsum.photos/200/300?grayscale" alt="anker-team"/>
-        <img src="https://picsum.photos/200/300?grayscale" alt="anker-team"/>
-      </div>
-      <div className="m-4 text-center">
-        <h2 className="text-7xl m-4">Piercer</h2>
-        <p className="m-4 max-w-150 ">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
-        </p>
-      </div>
-      <div>
-      <Link to="gallery">
-        <button className="white-glowing-button">Gallery</button>
-      </Link>
+    <div className="p-8">
+      <h1 className="text-7xl text-center font-bold mb-10">Professional Body Piercers</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {artists.map(artist => (
+          <ArtistCard key={artist.artist_id} artist={artist} />
+        ))}
       </div>
     </div>
-  )
-}
-
-export default Piercing
+  );
+} 

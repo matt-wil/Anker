@@ -43,15 +43,15 @@ const Hero = () => {
 
           </img>
           <img 
-          className="home-img w-150 h-50 rounded-md shadow-md max-w-full grayscale" 
-          src={ankerPiercing}
+          className="home-img w-150 h-50 rounded-md shadow-md max-w-full" 
+          src={ankerTattoo2}
           alt="images"
           >
 
           </img>
           <img 
           className="home-img w-100 h-50 rounded-md shadow-md max-w-full grayscale" 
-          src={ankerTattoo2}
+          src={ankerPiercing}
           alt="images"
           >
 

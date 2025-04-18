@@ -69,7 +69,7 @@ const Welcome = () => {
 
       <div className='h-screen flex bg-gray-950 justify-center place-items-center'>
           <AnimatedSplitLink>
-            <h1 className='dein-anker kollektif-bold text-9xl font-bold text-white hover:cursor-pointer'>
+            <h1 className='dein-anker animate-pulse kollektif-bold text-9xl font-bold text-white hover:cursor-pointer'>
             <Link to="/home" onClick={playTattooSound}>Dein Anker</Link>
             </h1>
           </AnimatedSplitLink>

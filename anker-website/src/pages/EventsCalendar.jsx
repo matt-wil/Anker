@@ -3,7 +3,7 @@ import Calendar from "../components/Calendar"
 const EventsCalendar = () => {
   return (
     <>
-    <h2 className="flex justify-center items-center text-7xl">Events Kalender</h2>
+    <h2 className="flex justify-center items-center text-7xl font-bold">Events Kalender</h2>
     <div>
       <Calendar />
     </div>
