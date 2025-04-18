@@ -1,7 +1,8 @@
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import { Link } from 'react-router-dom'
+
 
 const Hero = () => {
 
@@ -26,7 +27,7 @@ const Hero = () => {
     <>
       <div className='flex flex-row gap-10 h-screen' ref={comp}>
         <div className='flex m-10 p-10'>
-          <h1 className='main-heading kollektif-bold text-9xl font-bold leading-tight '>Anker<br/>Freiburg</h1>
+          <h1 className='kollektif-bold text-9xl leading-tight '>Anker<br/>Freiburg</h1>
         </div>
         <div className='flex flex-col items-end'>
           <img 
@@ -59,7 +60,7 @@ const Hero = () => {
           </img>
         </div>
       </div>
-      <div className='para-text flex flex-col justify-start m-10 p-10 max-w-150 '>
+      <div className='flex flex-col justify-start m-10 p-10 max-w-150 '>
           <p className="text-lg">Willkommen bei Anker Tattoo & Piercing in Freiburg. Wir bieten professionelle und hochwertige Tattoos sowie Piercings in einem hygienischen und kreativen Umfeld. Bei uns stehen Ihre individuellen Wünsche und Ihre Zufriedenheit an erster Stelle.</p>
           </div>
         <div className='flex justify-start items-center p-10 m-10'>          

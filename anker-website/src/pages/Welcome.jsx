@@ -3,6 +3,7 @@ import { gsap } from "gsap"
 import { Link } from "react-router-dom"
 import AnimatedSplitLink from "../effects/AnimatedSplitLink"
 import {useGSAP} from "@gsap/react"
+import tattooSound from "../assets/sounds/tattoomachine.mp3"
 
 const Welcome = () => {
   const comp = useRef(null)
@@ -50,7 +51,11 @@ const Welcome = () => {
     })
   })
 
-
+  const playTattooSound = () => {
+    const audio = new Audio(tattooSound);
+    audio.play();
+  }
+  
   return (
     <div className='relative' ref={comp}>
     <div id="intro-slider"
@@ -65,7 +70,7 @@ const Welcome = () => {
       <div className='h-screen flex bg-gray-950 justify-center place-items-center'>
           <AnimatedSplitLink>
             <h1 className='dein-anker kollektif-bold text-9xl font-bold text-white hover:cursor-pointer'>
-            <Link to="/home">Dein Anker</Link>
+            <Link to="/home" onClick={playTattooSound}>Dein Anker</Link>
             </h1>
           </AnimatedSplitLink>
       </div>

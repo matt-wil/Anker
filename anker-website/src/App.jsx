@@ -3,7 +3,6 @@ import Welcome from './pages/Welcome'
 import Layout from './components/Layout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PageTransition from './effects/PageTransition'
-import Home from './Pages/Home'
 import Tattoo from './pages/Tattoo'
 import Piercing from './pages/Piercing'
 import Team from './pages/Team'
@@ -15,6 +14,7 @@ import Impressum from './pages/Impressum'
 import EventsCalendar from './pages/EventsCalendar'
 import Gallery from './components/Gallery'
 import NotFound from './pages/NotFound'
+import FAQ from './pages/FAQ'
 
 function App() {
 
@@ -35,6 +35,8 @@ function App() {
                   <Route path="impressum" element={<Impressum />} />
                   <Route path="events-calendar" element={<EventsCalendar />} />
                   <Route path='piercing/gallery' element={<Gallery />} />
+                  <Route path='tattoo/gallery' element={<Gallery />} />
+                  <Route path="faq" element={<FAQ />} />
               <Route path="*" element={<NotFound />} />
               </Route>
           </Routes>

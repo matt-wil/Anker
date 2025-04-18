@@ -27,6 +27,10 @@ body {
   --white: #f0f0f0;
 }
 
+.nav-button-effect:hover {
+  box-shadow: 0 0 15px 3px gold;
+}
+
 .white-glowing-button {
   border: calc(0.08 * var(--m)) solid transparent;
   position: relative;

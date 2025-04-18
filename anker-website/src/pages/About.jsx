@@ -7,7 +7,7 @@ const About = () => {
         <h1 className='text-7xl'>Über uns</h1>
       </div>
       <div>
-        <p className='m-5 text-center'>
+        <p className='m-5 text-center max-w-150'>
         In unserem, auf nationalen und internationalen Tattooconventions ausgezeichneten Studio findet seit Dezember 2011 jeder seinen privaten Schatz, egal ob Piercing oder Tattoo.
 Im Herzen des idyllischen Freiburg gelegen, findet ihr unser Studio nahe dem Martinstor, nur ein paar Schritte von der S-Bahn-Haltestelle „Holzmarkt“ sowie lediglich einige Gehminuten vom Hauptbahnhof entfernt. Um die Ecke befinden sich auch zwei Parkhäuser, für all diejenige unter euch, die mit dem Auto anreisen. 
 <br /><br />
