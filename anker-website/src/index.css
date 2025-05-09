@@ -30,7 +30,7 @@
 @font-face {
   font-family: 'Kollektif';
   src: local('Kollektif'),
-       url('./assets/fonts/Kollektif.ttf') format('truetype');
+       url('./fonts/Kollektif.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -39,7 +39,7 @@
 @font-face {
   font-family: 'Kollektif';
   src: local('Kollektif Bold'), /* Added local() for bold */
-       url('./assets/fonts/Kollektif-Bold.ttf') format('truetype');
+       url('./fonts/Kollektif-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -48,7 +48,7 @@
 @font-face {
     font-family: 'Kollektif';
     src: local('Kollektif Italic'), /* Added local() for italic */
-         url('./assets/fonts/Kollektif-Italic.ttf') format('truetype');
+         url('./fonts/Kollektif-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -57,7 +57,7 @@
 @font-face {
     font-family: 'Kollektif';
     src: local('Kollektif Bold Italic'),  /* Added local() */
-         url('./assets/fonts/Kollektif-BoldItalic.ttf') format('truetype');
+         url('./fonts/Kollektif-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
     font-display: swap;

@@ -1,9 +1,9 @@
 const Datenschutz = () => {
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center gap-5">
         <h2 className="text-7xl font-bold">Datenschutz</h2>
         <div>
-        <p>
+        <p className="p-5 md:px-15">
         Hinweis zum Umgang mit Ihren Daten
 Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst und halten uns strikt an die Regeln der Datenschutzgesetze. Personenbezogene Daten werden auf dieser Webseite nur im technisch notwendigen Umfang erhoben. In keinem Fall werden die erhobenen Daten verkauft oder aus anderen Gründen an Dritte weitergegeben.
 

@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 
 const navLinkStyle = ({ isActive }) =>
-  `group relative pb-1 transition-all duration-300 transform ${
+  `rounded group relative pb-1 transition-all duration-300 transform ${
     isActive ? 'text-gray-500 after:scale-x-100' : 'after:scale-x-0'
   } hover:scale-[1.025] hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-in-out after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-black after:origin-left`
 
@@ -20,7 +20,7 @@ const NavLinks = () => {
       <NavLink className={navLinkStyle} to="about">Über uns</NavLink>
       <NavLink className={navLinkStyle} to="datenschutz">Datenschutz</NavLink>
       <NavLink className={navLinkStyle} to="impressum">Impressum</NavLink>
-      <NavLink className={navLinkStyle} to="events-calendar">Events</NavLink>
+      <NavLink className={navLinkStyle} to="aktionen">Aktionen</NavLink>
       <NavLink className={navLinkStyle} to="faq">FAQ</NavLink>
     </>
   )
@@ -31,7 +31,7 @@ const ExtraMainNavLinks = () => {
     <>
       <NavLink className={navLinkStyle} to="team">Team</NavLink>
       <NavLink className={navLinkStyle} to="about">Über uns</NavLink>
-      <NavLink className={navLinkStyle} to="events-calendar">Events</NavLink>
+      <NavLink className={navLinkStyle} to="aktionen">Aktionen</NavLink>
       <NavLink className={navLinkStyle} to="faq">FAQ</NavLink>
     </>
   )
@@ -47,7 +47,7 @@ const MainNavLinks = ({toggleMainBarNav, isMainOpen}) => {
       <div className='relative'>
       <button className="cursor-pointer" onClick={toggleMainBarNav}>{isMainOpen ? <X /> : <Menu/>}</button>
       {isMainOpen && (
-        <div className='absolute flex flex-col gap-2 mr-5 top-8 left-0 mt-1 py-2 w-32 z-10'>
+        <div className='bg-white/60 pl-2 absolute flex flex-col gap-2 mr-5 top-8 left-0 mt-1 py-2 w-32 z-10'>
           <ExtraMainNavLinks />
        </div>)}
        </div>
@@ -75,7 +75,7 @@ const Nav = () => {
         </div>
         <div className='md:hidden'>
           <button onClick={toggleNavbar}>
-            {isOpen ? <X /> : <Menu />}
+            {isOpen ? <X className='hover:cursor-pointer'/> : <Menu className='hover:cursor-pointer'/>}
           </button>
         </div>
      </nav>

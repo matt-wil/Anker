@@ -1,5 +1,4 @@
 import { getArtistsByProfession } from "../api/artists"
-import { Link } from "react-router-dom"
 import ArtistCard from "../components/ArtistCard"
 import { useState, useEffect } from "react";
 

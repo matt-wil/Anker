@@ -38,5 +38,3 @@ export async function getArtistsByProfession(profession: string): Promise<Artist
 
 }
 
-console.log(getArtistsByProfession('tattooist'))
-

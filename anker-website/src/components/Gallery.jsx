@@ -1,12 +1,15 @@
 // src/components/Gallery.jsx
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { getPortfolioImagesByArtistId } from "../api/portfolioImages";
+
 
 export default function Gallery() {
   const plane1 = useRef(null);
   const plane2 = useRef(null);
   const plane3 = useRef(null);
   const [fullscreenSrc, setFullscreenSrc] = useState(null);
+  const [images, setImages] = useState(null)
 
   let requestAnimationFrameId = null;
   let xForce = 0;
@@ -66,6 +69,10 @@ export default function Gallery() {
 
   const handleImageClick = (src) => setFullscreenSrc(src);
   const closeFullscreen = () => setFullscreenSrc(null);
+
+  useEffect(() => {
+    getPortfolioImagesByArtistId(4).then(setImages) // i have to implement useQuery Param to dynamically render the specific images to the specific artist
+  }, [])
 
   const renderImage = (src, className) => (
     <img

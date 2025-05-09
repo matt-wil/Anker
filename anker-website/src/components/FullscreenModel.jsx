@@ -1,0 +1,1 @@
+/// create component to full screen gallery images 

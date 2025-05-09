@@ -11,10 +11,15 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Datenschutz from './pages/Datenschutz'
 import Impressum from './pages/Impressum'
-import EventsCalendar from './pages/EventsCalendar'
-import Gallery from './components/Gallery'
+import Aktionen from './pages/Aktionen'
+import ArtistGallery from './components/ArtistGallery'
 import NotFound from './pages/NotFound'
 import FAQ from './pages/FAQ'
+import ProtectedRoutes from './pages/Auth/ProtectedRoutes'
+import Login from "./pages/Auth/Login"
+import Register from "./pages/Auth/Register"
+import Dashboard from './pages/Auth/Dashboard'
+
 
 function App() {
 
@@ -33,12 +38,20 @@ function App() {
                   <Route path="about" element={<About />} />
                   <Route path='datenschutz' element={<Datenschutz />} />
                   <Route path="impressum" element={<Impressum />} />
-                  <Route path="events-calendar" element={<EventsCalendar />} />
-                  <Route path='piercing/gallery' element={<Gallery />} />
-                  <Route path='tattoo/gallery' element={<Gallery />} />
+                  <Route path="aktionen" element={<Aktionen />} />
+                  <Route path='artists/:artist_id/gallery' element={<ArtistGallery />} />
+                  <Route path='artists/:artist_id/gallery' element={<ArtistGallery />} />
                   <Route path="faq" element={<FAQ />} />
               <Route path="*" element={<NotFound />} />
               </Route>
+              // Authentication routes
+              <Route path="/login" element={<Login />}/>
+              <Route path="/register" element={<Register />}/>
+              <Route path="/dashboard" element={
+                <ProtectedRoutes>
+                  <Dashboard />
+                </ProtectedRoutes>
+              }/>
           </Routes>
         </PageTransition>
       </BrowserRouter>

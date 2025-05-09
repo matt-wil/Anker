@@ -8,9 +8,9 @@
 }
 
 body {
-  background-image: url(assets/images/coolbackgrounds-fractalize-bleach.png);
+  background-color: white;
+  color: #1b2a30;
   font: normal 16px/1.5 'Gidole', sans-serif;
-
 }
 
 :root {
@@ -25,6 +25,8 @@ body {
   --yellow: #FFEE55;
   --orange: #FF6D1B;
   --white: #f0f0f0;
+  --amber: #B06821;
+  --ankerBlue: #1B2A30;
 }
 
 .nav-button-effect:hover {
@@ -43,7 +45,7 @@ body {
   justify-content: center;
   cursor: pointer;
 
-  background: linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--white), var(--yellow));
+  background: linear-gradient(#1B2A30, #1B2A30), linear-gradient(#1B2A30 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--white), var(--blue));
   background-origin: border-box;
   background-clip: padding-box, border-box, border-box;
   background-size: 200%;
@@ -52,7 +54,7 @@ body {
 
 .white-glowing-button::before {
   content: '';
-  background: linear-gradient(90deg, var(--white), var(--yellow));
+  background: linear-gradient(90deg, var(--white), var(--blue));
   height: 30%;
   width: 60%;
   position: absolute;
@@ -99,7 +101,7 @@ body {
   animation: animate 0.5s infinite linear;
 }
 
-.glowing-button:hover, .white-glowing-button:hover::before {
+.white-glowing-button:hover, .white-glowing-button:hover::before {
   animation: animate 0.5s infinite linear;
 }
 
@@ -115,12 +117,12 @@ body {
 }
 
 .glowing-text {
-    color: white; /* Or your desired base text color */
+    color: white;
     text-shadow:
-      0 0 5px rgba(255, 204, 0, 0.8), /* Inner glow */
-      0 0 10px rgba(255, 204, 0, 0.6), /* Medium glow */
-      0 0 15px rgba(255, 204, 0, 0.4); /* Outer glow */
-    animation: text-glow 1.5s infinite alternate; /* Adjust duration and iteration as needed */
+      0 0 5px rgba(255, 204, 0, 0.8),
+      0 0 10px rgba(255, 204, 0, 0.6), 
+      0 0 15px rgba(255, 204, 0, 0.4);
+    animation: text-glow 2s infinite alternate; 
   }
   
   @keyframes text-glow {
@@ -132,8 +134,12 @@ body {
     }
     to {
       text-shadow:
-        0 0 10px rgba(255, 204, 0, 1),   /* More intense inner glow */
-        0 0 15px rgba(255, 204, 0, 0.8), /* More intense medium glow */
-        0 0 20px rgba(255, 204, 0, 0.6); /* More intense outer glow */
+        0 0 10px rgba(255, 204, 0, 1),  
+        0 0 15px rgba(255, 204, 0, 0.8), 
+        0 0 20px rgba(255, 204, 0, 0.6);
     }
   }
+
+.hero-img-clip-path {
+  clip-path: circle(92.9% at 94% 50%);
+}

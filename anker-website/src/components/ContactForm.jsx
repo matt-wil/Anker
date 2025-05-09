@@ -12,10 +12,8 @@ const ContactForm = () => {
     setSubmissionStatus('submitting');
 
     try {
-      // Simulate an API call (replace with your actual backend logic)
       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      // Assuming the submission was successful
       setSubmissionStatus('success');
       setName('');
       setEmail('');

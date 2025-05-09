@@ -10,6 +10,9 @@ module.exports = {
           noto: 'var(--font-noto)',
           faculty: ['"Faculty Glyphic"', 'serif'],
         },
+        colors: {
+          ankerBlue: 'var(--ankerBlue)'
+        },
       },
     },
     plugins: [],

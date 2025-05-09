@@ -1,9 +1,9 @@
 const Impressum = () => {
     return (
-      <div>
+      <div className="flex flex-col justify-center items-center gap-5">
           <h2 className="text-7xl font-bold">Impressum</h2>
           <div>
-          <p>
+          <p className="p-5 md:px-15">
   Dienstanbieter / Verantwortlicher i.S.d. §§ 6 TDG, 6 MDStV:
   Geschäftsführer: Mateusz Miklis
   

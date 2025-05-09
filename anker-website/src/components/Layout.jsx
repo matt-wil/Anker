@@ -12,9 +12,9 @@ export default function Layout() {
     return (
         <>
             <Header />
-            <main>
-                <Outlet />
-            </main>
+                <main>
+                    <Outlet />
+                </main>
             <Footer />
         </>
     )
