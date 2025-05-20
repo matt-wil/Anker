@@ -1,9 +1,27 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AdvancedImage} from "@cloudinary/react"
+import { Cloudinary } from '@cloudinary/url-gen/index';
+import { Resize } from "@cloudinary/url-gen/actions"
+import { lazyload, responsive, placeholder } from '@cloudinary/react';
 
+const cloudinary = new Cloudinary({
+  cloud: {
+    cloudName: import.meta.env.VITE_CLOUDINARY_NAME
+  }
+})
 
 const ArtistCard = ({ artist }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  // Cloudinary 
+  const getPublicId = (url) => {
+    const parts = url.split("/upload/")[1]
+    return parts?.split(".")[0] || ""
+  }
+
+  const publicId = getPublicId(artist.profile_image)
+  const cldImg = cloudinary.image(publicId).resize(Resize.scale().width(650)).format("auto")
 
   return (
     <div 
@@ -11,10 +29,11 @@ const ArtistCard = ({ artist }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img
-        src={`/images/artists/${artist.name}/${artist.profile_image}`}
-        alt={artist.name}
+      <AdvancedImage
+        cldImg={cldImg}
+        alt={`Anker Tattoo and Piercing Freiburg Artist ${artist.name}`}
         className='w-full h-140 object-cover rounded-t-2xl'
+        plugins={[lazyload(),responsive(),placeholder()]}
       />
       <div className='p-4'>
         <h2 className='text-4xl font-semibold text-center'>{artist.name}</h2>

@@ -1,13 +1,69 @@
-import React from 'react'
+import { Cloudinary } from "@cloudinary/url-gen"
+import { AdvancedVideo } from "@cloudinary/react"
+import { Quality } from "@cloudinary/url-gen/qualifiers"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
+import gsap from "gsap"
+import { SplitText } from "gsap/SplitText"
+import { useGSAP } from "@gsap/react"
+import { useRef } from "react"
+import { ScrollTrigger } from "gsap/ScrollTrigger" 
+
+gsap.registerPlugin(SplitText, ScrollTrigger)
+
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: import.meta.env.VITE_CLOUDINARY_NAME
+  }
+})
+
+const bgVideo = cld.video("splash2_jx9amn").format(auto()).quality(Quality.auto())
+
 
 const About = () => {
+  const headerRef = useRef(null)
+  
+useGSAP(() => {
+  let split = SplitText.create(".about-header",{
+    type: "chars",
+  })
+
+  document.fonts.ready.then(() => {
+    gsap.from(split.chars, {
+      y: 100,
+      autoAlpha: 0,
+      stagger: {
+        amount: 0.5,
+        from: "random"
+      },
+      scrollTrigger: {
+        trigger: headerRef.current,
+        start: "top 50%",
+        toggleActions: "play none none reverse",
+        // markers: true
+      }
+    })
+
+  })
+}, [])
+
+
   return (
-    <div className='flex flex-col justify-center items-center'>
-      <div>
-        <h1 className='text-7xl font-bold'>Über uns</h1>
+    <div className="relative w-full min-h-screen overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full z-0">
+        <AdvancedVideo
+          cldVid={bgVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-50"
+        />
       </div>
-      <div>
-        <p className='m-5 text-center max-w-150'>
+
+      <div className="relative z-10 flex flex-col items-center justify-center text-[#1b2a30] px-6 py-32">
+        <h1 ref={headerRef} className="about-header text-6xl sm:text-9xl font-bold mb-10">Über uns</h1>
+        <p className="max-w-4xl text-lg text-center leading-relaxed">
         In unserem, auf nationalen und internationalen Tattooconventions ausgezeichneten Studio findet seit Dezember 2011 jeder seinen privaten Schatz, egal ob Piercing oder Tattoo.
 Im Herzen des idyllischen Freiburg gelegen, findet ihr unser Studio nahe dem Martinstor, nur ein paar Schritte von der S-Bahn-Haltestelle „Holzmarkt“ sowie lediglich einige Gehminuten vom Hauptbahnhof entfernt. Um die Ecke befinden sich auch zwei Parkhäuser, für all diejenige unter euch, die mit dem Auto anreisen. 
 <br /><br />

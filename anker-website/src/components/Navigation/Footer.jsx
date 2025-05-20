@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-auto flex justify-center items-center h-20 text-sm italic">
+    <footer className="w-full mt-10 flex justify-center items-center h-20 text-sm italic">
       <div className="flex flex-col justify-center items-center text-center">
         <a
           className="my-5 hover:animate-pulse"
@@ -25,8 +25,9 @@ export default function Footer() {
           | Telefon:{" "}
           <a href="tel:+4976151462878">0761-51 46 28 78</a> | E-Mail:{" "}
           <a href="mailto:info@anker-tattoo.de">info@anker-tattoo.de</a> |{" "}
-          <Link to="/Datenschutz">Datenschutz</Link> |{" "}
-          <Link to="/Impressum">Impressum</Link>
+          <Link to="datenschutz">Datenschutz</Link> |{" "}
+          <Link to="impressum">Impressum</Link> | {" "}
+          <Link to="/login">Admin</Link> 
         </p>
       </div>
     </footer>

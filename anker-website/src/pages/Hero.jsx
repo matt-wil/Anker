@@ -1,10 +1,10 @@
 import { useRef } from "react"
 import { Link } from 'react-router-dom'
-import ankerGun from "../assets/images/anker_tattoo_gun.jpg"
 import ankerDesk from "../assets/images/ankerDesk.png"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import ScrollPage from "../components/ScrollPage"
+import About from "./About"
 
 
 
@@ -39,8 +39,11 @@ const Hero = () => {
           />
         </div>
       </div>
-      <section className="w-dvw h-dvh">
+      <section>
         <ScrollPage />
+      </section>
+      <section>
+        <About />
       </section>
     </>
   )

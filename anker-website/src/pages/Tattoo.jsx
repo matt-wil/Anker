@@ -8,7 +8,6 @@ export default function Tattooists() {
   useEffect(() => {
     getArtistsByProfession('Tattooist').then(setArtists);
   }, []);
-  console.log(artists)
 
 
   return (

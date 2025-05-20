@@ -18,6 +18,3 @@ export async function getPortfolioImagesByArtistId(artist_id) {
     const portfolioImagesByArtistId = data.filter((portfolioImage)=> portfolioImage.artist_id === artist_id);
     return portfolioImagesByArtistId;
 }
-
-const data = getPortfolioImagesByArtistId(4)
-console.log(data)

@@ -19,6 +19,7 @@ import ProtectedRoutes from './pages/Auth/ProtectedRoutes'
 import Login from "./pages/Auth/Login"
 import Register from "./pages/Auth/Register"
 import Dashboard from './pages/Auth/Dashboard'
+import { AuthProvider } from './pages/Auth/AuthContext'
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <AuthProvider>
+
         <PageTransition>
           <Routes>
               <Route path='/' element={<Welcome />} />
@@ -44,16 +47,18 @@ function App() {
                   <Route path="faq" element={<FAQ />} />
               <Route path="*" element={<NotFound />} />
               </Route>
-              // Authentication routes
-              <Route path="/login" element={<Login />}/>
-              <Route path="/register" element={<Register />}/>
-              <Route path="/dashboard" element={
-                <ProtectedRoutes>
-                  <Dashboard />
-                </ProtectedRoutes>
-              }/>
+
+              {/* Authentication routes*/}
+                <Route path="/login" element={<Login />}/>
+                <Route path="/register" element={<Register />}/>
+                <Route path="/dashboard" element={
+                  <ProtectedRoutes>
+                    <Dashboard />
+                  </ProtectedRoutes>
+                }/>
           </Routes>
         </PageTransition>
+              </AuthProvider>
       </BrowserRouter>
     </>
   )

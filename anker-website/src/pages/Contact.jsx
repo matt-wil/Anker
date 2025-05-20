@@ -1,6 +1,7 @@
 import ContactForm from '../components/ContactForm';
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import { MdPhoneInTalk } from "react-icons/md";
 
 
 const Contact = () => {
@@ -13,9 +14,13 @@ const Contact = () => {
       y: 50,
     })
   })
+
   return (
     <>
     <div>
+      <div className='flex justify-center'>
+        <a href="tel:+4976151462878"><MdPhoneInTalk className='w-40 h-40 animate-pulse'/></a>
+      </div>
       <div className='contact-form'>
        <ContactForm />
       </div>

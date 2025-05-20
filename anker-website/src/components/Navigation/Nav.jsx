@@ -17,7 +17,6 @@ const NavLinks = () => {
       <NavLink className={navLinkStyle} to="piercing">Piercing</NavLink>
       <NavLink className={navLinkStyle} to="contact">Kontakt</NavLink>
       <NavLink className={navLinkStyle} to="team">Team</NavLink>
-      <NavLink className={navLinkStyle} to="about">Über uns</NavLink>
       <NavLink className={navLinkStyle} to="datenschutz">Datenschutz</NavLink>
       <NavLink className={navLinkStyle} to="impressum">Impressum</NavLink>
       <NavLink className={navLinkStyle} to="aktionen">Aktionen</NavLink>
@@ -30,9 +29,10 @@ const ExtraMainNavLinks = () => {
   return (
     <>
       <NavLink className={navLinkStyle} to="team">Team</NavLink>
-      <NavLink className={navLinkStyle} to="about">Über uns</NavLink>
       <NavLink className={navLinkStyle} to="aktionen">Aktionen</NavLink>
       <NavLink className={navLinkStyle} to="faq">FAQ</NavLink>
+      <NavLink className={navLinkStyle} to="datenschutz">Datenschutz</NavLink>
+      <NavLink className={navLinkStyle} to="impressum">Impressum</NavLink>
     </>
   )
 }

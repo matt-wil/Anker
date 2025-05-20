@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from "@emailjs/browser"
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -6,28 +7,33 @@ const ContactForm = () => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [submissionStatus, setSubmissionStatus] = useState(null);
+  const formRef = useRef()
 
-  const handleSubmit = async (event) => {
+  // emailJS config
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     setSubmissionStatus('submitting');
 
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
+    emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
+    .then(() => {
       setSubmissionStatus('success');
-      setName('');
-      setEmail('');
-      setSubject('');
-      setMessage('');
-    } catch (error) {
+      formRef.current.reset();
+    })
+    .catch ((error) => {
       console.error("Form submission error:", error);
       setSubmissionStatus('error');
-    }
+    })
   };
 
   return (
     <div className='flex justify-center items-center py-10'>
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
         className='bg-white rounded-lg shadow-xl border border-gray-300 p-8 w-full max-w-md'
       >
@@ -40,6 +46,7 @@ const ContactForm = () => {
           <input
             type='text'
             id='name'
+            name='name'
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             placeholder='Ihr Name'
             value={name}
@@ -55,6 +62,7 @@ const ContactForm = () => {
           <input
             type='email'
             id='email'
+            name='email'
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             placeholder='Ihre Email-Adresse'
             value={email}
@@ -70,6 +78,7 @@ const ContactForm = () => {
           <input
             type='text'
             id='subject'
+            name='subject'
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             placeholder='Betreff Ihrer Nachricht'
             value={subject}
@@ -83,6 +92,7 @@ const ContactForm = () => {
           </label>
           <textarea
             id='message'
+            name='message'
             className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32 resize-none'
             placeholder='Ihre Nachricht an uns'
             value={message}
