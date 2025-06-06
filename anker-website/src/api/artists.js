@@ -2,7 +2,7 @@ export async function getArtistsByProfession(profession){
     if (!profession) {
         throw new Error('Profession is required');
     }
-    const response = await fetch(`http://127.0.0.1:5001/api/artists`);
+    const response = await fetch(`${import.meta.env.VITE_ANKER_API}/api/artists`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }

@@ -2,10 +2,12 @@ import ContactForm from '../components/ContactForm';
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { MdPhoneInTalk } from "react-icons/md";
-
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const {t} = useTranslation()
 
+  
   useGSAP(() => {
     gsap.from('.contact-form', {
       opacity: 0,
@@ -25,19 +27,19 @@ const Contact = () => {
        <ContactForm />
       </div>
       <div className='text-center m-10'>
-        <h2 className='text-4xl mb-4 font-bold'>Öffnungszeiten</h2>
-          <p><strong>Dienstag - Freitag</strong>: 12:00 - 18:00 Uhr<br/>
-        <strong>Samstag</strong>: 12:00 - 16:00 Uhr<br/>
-        <strong>Sonntag & Montag</strong>: Geschlossen</p>
+        <h2 className='text-4xl mb-4 font-bold'>{t("contact.openHoursHeader")}</h2>
+          <p><strong>{t("contact.weekdays")}</strong>{t("contact.weekdayTime")}<br/>
+        <strong>{t("contact.saturday")}</strong>{t("contact.saturdayTime")}<br/>
+        <strong>{t("contact.closedDays")}</strong></p>
       </div>
       <div className='text-center m-10'>
-        <h2 className='text-4xl mb-4 font-bold'>Adresse</h2>
-        <a href="https://www.google.de/maps/place/Anchor+Tattoo+%26+Piercing/@47.992937,7.8459964,17z/data=!3m2!4b1!5s0x47911c9f3ba9bd43:0x78627daf6b29d5ed!4m6!3m5!1s0x47911c9f3ba91f21:0xd7b8fd0d6016ea0e!8m2!3d47.992937!4d7.8485713!16s%2Fg%2F1hc27lzgy?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D" target='_blank'><p>An der Mehlwaage 2. <br/>79098 <strong>Freiburg im Breisgau</strong></p></a>
+        <h2 className='text-4xl mb-4 font-bold'>{t("contact.addressHeader")}</h2>
+        <a href="https://www.google.de/maps/place/Anchor+Tattoo+%26+Piercing/@47.992937,7.8459964,17z/data=!3m2!4b1!5s0x47911c9f3ba9bd43:0x78627daf6b29d5ed!4m6!3m5!1s0x47911c9f3ba91f21:0xd7b8fd0d6016ea0e!8m2!3d47.992937!4d7.8485713!16s%2Fg%2F1hc27lzgy?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D" target='_blank'><p>{t("contact.addressLine1")} <br/>{t("contact.addressLine2")}</p></a>
       </div>
       <div className='text-center m-10'>
-        <h2 className='text-4xl mb-4 font-bold'>Kontakt</h2>
-        <p><strong>Telefon</strong>: <a href="tel:+4976151462878">0761 51 46 28 78</a> </p>
-        <p><strong>E-Mail</strong>: <a href='mailto:info@anker-tattoo.de'>info@anker-tattoo.de</a></p>
+        <h2 className='text-4xl mb-4 font-bold'>{t("contact.contactHeader")}</h2>
+        <p><strong>{t("contact.phone")}</strong>: <a href="tel:+4976151462878">0761 51 46 28 78</a> </p>
+        <p><strong>{t("contact.email")}</strong>: <a href='mailto:info@anker-tattoo.de'>info@anker-tattoo.de</a></p>
       </div>
     </div>
     

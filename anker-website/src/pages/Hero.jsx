@@ -5,10 +5,12 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import ScrollPage from "../components/ScrollPage"
 import About from "./About"
+import { useTranslation } from "react-i18next"
 
 
 
 const Hero = () => {
+  const { t } = useTranslation() 
   const imageRef = useRef(null)
   
   useGSAP(() => {
@@ -24,10 +26,11 @@ const Hero = () => {
     <>
       <div className='grid xl:grid-cols-2'>
         <div className='flex flex-col p-2 m-2 sm:m-10 sm:p-10'>
-          <h1 className='kollektif-bold text-6xl 2xl:text-[200px] sm:text-9xl leading-tight '>Anker<br />Freiburg</h1>
-          <p className="mt-5 sm:text-m 2xl:text-lg">Willkommen bei Anker Tattoo & Piercing in Freiburg. Wir bieten hochwertige Tattoos sowie professionell gestochene Piercings in einem hygienischen und kreativen Umfeld. Bei uns stehen deine individuellen Wünsche und deine Zufriedenheit an erster Stelle.</p>
+          <h1 className='kollektif-bold text-6xl 2xl:text-[200px] sm:text-9xl leading-tight'>Anker<br />Freiburg</h1>
+          <p className="mt-5 sm:text-m 2xl:text-lg">{t("hero.intro")}</p>
+          <h2 className="text-3xl kollektif-bold mt-4">{t("hero.introEnd")}</h2>
           <div className='flex justify-center items-center p-2 m-2 sm:p-10 sm:m-10'>          
-        <Link to="contact"><button className='white-glowing-button'>Kontakt</button></Link>
+        <Link to="contact"><button className='white-glowing-button'>{t("hero.button")}</button></Link>
         </div>
         </div>
         <div className="flex justify-center items-center">

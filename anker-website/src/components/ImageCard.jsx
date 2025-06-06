@@ -28,7 +28,7 @@ const ImageCard = ({ src, alt, className, onClick}) => {
             <AdvancedImage 
                 cldImg={cldImg} 
                 alt={alt} 
-                className={`w-64 h-64 object-cover rounded-2xl shadow-2xl ${className}`}
+                className={`w-64 h-64 object-cover rounded-2xl shadow-2xl cursor-zoom-in ${className}`}
                 plugins={[lazyload(),responsive(),placeholder()]}
                 onClick={onClick}
                 />

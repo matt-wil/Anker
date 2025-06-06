@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PageTransition from './effects/PageTransition'
 import Tattoo from './pages/Tattoo'
 import Piercing from './pages/Piercing'
-import Team from './pages/Team'
 import Hero from './pages/Hero'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -20,6 +19,7 @@ import Login from "./pages/Auth/Login"
 import Register from "./pages/Auth/Register"
 import Dashboard from './pages/Auth/Dashboard'
 import { AuthProvider } from './pages/Auth/AuthContext'
+import AuthLayout from './pages/Auth/AuthLayout'
 
 
 function App() {
@@ -28,7 +28,6 @@ function App() {
     <>
       <BrowserRouter>
       <AuthProvider>
-
         <PageTransition>
           <Routes>
               <Route path='/' element={<Welcome />} />
@@ -36,7 +35,6 @@ function App() {
                   <Route index element={<Hero />} />
                   <Route path="tattoo" element={<Tattoo />} />
                   <Route path="piercing" element={<Piercing />} />
-                  <Route path="team" element={<Team />} />
                   <Route path="contact" element={<Contact />} />
                   <Route path="about" element={<About />} />
                   <Route path='datenschutz' element={<Datenschutz />} />
@@ -49,13 +47,18 @@ function App() {
               </Route>
 
               {/* Authentication routes*/}
+                {/** Public */}
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
+
+                {/** Protected */}
                 <Route path="/dashboard" element={
                   <ProtectedRoutes>
-                    <Dashboard />
+                    <AuthLayout />
                   </ProtectedRoutes>
-                }/>
+                }>
+                  <Route index element={<Dashboard />} />
+                </Route>
           </Routes>
         </PageTransition>
               </AuthProvider>

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 
 const navLinkStyle = ({ isActive }) =>
@@ -8,42 +9,44 @@ const navLinkStyle = ({ isActive }) =>
     isActive ? 'text-gray-500 after:scale-x-100' : 'after:scale-x-0'
   } hover:scale-[1.025] hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-in-out after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-black after:origin-left`
 
+  
 
 const NavLinks = () => {
+  const {t} = useTranslation()
   return (
     <>
-      <NavLink className={navLinkStyle} to="/home" end>Home</NavLink>
-      <NavLink className={navLinkStyle} to="tattoo">Tattoo</NavLink>
-      <NavLink className={navLinkStyle} to="piercing">Piercing</NavLink>
-      <NavLink className={navLinkStyle} to="contact">Kontakt</NavLink>
-      <NavLink className={navLinkStyle} to="team">Team</NavLink>
-      <NavLink className={navLinkStyle} to="datenschutz">Datenschutz</NavLink>
-      <NavLink className={navLinkStyle} to="impressum">Impressum</NavLink>
-      <NavLink className={navLinkStyle} to="aktionen">Aktionen</NavLink>
-      <NavLink className={navLinkStyle} to="faq">FAQ</NavLink>
+      <NavLink className={navLinkStyle} to="/home" end>{t("nav.home")}</NavLink>
+      <NavLink className={navLinkStyle} to="tattoo">{t("nav.tattoo")}</NavLink>
+      <NavLink className={navLinkStyle} to="piercing">{t("nav.piercing")}</NavLink>
+      <NavLink className={navLinkStyle} to="contact">{t("nav.contact")}</NavLink>
+      <NavLink className={navLinkStyle} to="datenschutz">{t("nav.data")}</NavLink>
+      <NavLink className={navLinkStyle} to="impressum">{t("nav.legal")}</NavLink>
+      <NavLink className={navLinkStyle} to="aktionen">{t("nav.promo")}</NavLink>
+      <NavLink className={navLinkStyle} to="faq">{t("nav.faq")}</NavLink>
     </>
   )
 }
 
 const ExtraMainNavLinks = () => {
+  const {t} = useTranslation()
   return (
     <>
-      <NavLink className={navLinkStyle} to="team">Team</NavLink>
-      <NavLink className={navLinkStyle} to="aktionen">Aktionen</NavLink>
-      <NavLink className={navLinkStyle} to="faq">FAQ</NavLink>
-      <NavLink className={navLinkStyle} to="datenschutz">Datenschutz</NavLink>
-      <NavLink className={navLinkStyle} to="impressum">Impressum</NavLink>
+      <NavLink className={navLinkStyle} to="aktionen">{t("nav.promo")}</NavLink>
+      <NavLink className={navLinkStyle} to="faq">{t("nav.faq")}</NavLink>
+      <NavLink className={navLinkStyle} to="datenschutz">{t("nav.data")}</NavLink>
+      <NavLink className={navLinkStyle} to="impressum">{t("nav.legal")}</NavLink>
     </>
   )
 }
 
 const MainNavLinks = ({toggleMainBarNav, isMainOpen}) => {
+  const {t} = useTranslation()
   return (
     <>
-      <NavLink className={navLinkStyle} to="/home" end>Home</NavLink>
-      <NavLink className={navLinkStyle} to="tattoo">Tattoo</NavLink>
-      <NavLink className={navLinkStyle} to="piercing">Piercing</NavLink>
-      <NavLink className={navLinkStyle} to="contact">Kontakt</NavLink>
+      <NavLink className={navLinkStyle} to="/home" end>{t("nav.home")}</NavLink>
+      <NavLink className={navLinkStyle} to="tattoo">{t("nav.tattoo")}</NavLink>
+      <NavLink className={navLinkStyle} to="piercing">{t("nav.piercing")}</NavLink>
+      <NavLink className={navLinkStyle} to="contact">{t("nav.contact")}</NavLink>
       <div className='relative'>
       <button className="cursor-pointer" onClick={toggleMainBarNav}>{isMainOpen ? <X /> : <Menu/>}</button>
       {isMainOpen && (

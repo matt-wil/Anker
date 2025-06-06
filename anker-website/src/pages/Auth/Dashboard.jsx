@@ -1,6 +1,7 @@
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { getDashboardContent } from "../../api/dashboard"
-import { useAuth } from "./AuthContext"
+import { FiSettings } from "react-icons/fi"
+import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 
 const Dashboard = () => {

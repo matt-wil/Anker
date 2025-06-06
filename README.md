@@ -30,22 +30,55 @@ This is the frontend for the Anker Tattoo & Piercing Studio website, built with 
 ## 📁 Structure
 
 ```
-frontend/
-├── pages/
-│   ├── Login.jsx
-│   ├── SignUp.jsx
-│   ├── Dashboard.jsx
-├── components/
-│   ├── Layout.jsx
-│   ├── ArtistGallery.jsx
-│   ├── ProtectedRoute.jsx
-├── context/
-│   └── AuthContext.jsx
-├── api/
-│   └── auth.js
-├── App.jsx
-├── main.jsx
-└── index.css
+anker-website/
+├── index.html
+├── package.json
+├── package-lock.json
+├── tailwind.config.js
+├── vite.config.js
+├── tsconfig.json
+├── eslint.config.js
+├── public/
+├── node_modules/
+├── README.md               
+└── src/
+    ├── api/               
+    ├── assets/             
+    ├── components/         
+    │   ├── ArtistCard.jsx
+    │   ├── ArtistGallery.jsx
+    │   ├── ContactForm.jsx
+    │   ├── FullscreenModel.jsx
+    │   ├── Gallery.jsx
+    │   ├── ImageCard.jsx
+    │   ├── Layout.jsx
+    │   ├── Logo.jsx
+    │   └── Navigation/
+    ├── context/            
+    ├── effects/            
+    ├── fonts/              
+    ├── pages/              
+    │   ├── About.jsx
+    │   ├── Aktionen.jsx
+    │   ├── Auth/
+    │   │   ├── Login.jsx
+    │   │   ├── SignUp.jsx
+    │   │   └── Dashboard.jsx
+    │   ├── Contact.jsx
+    │   ├── Datenschutz.jsx
+    │   ├── FAQ.jsx
+    │   ├── Hero.jsx
+    │   ├── Impressum.jsx
+    │   ├── NotFound.jsx
+    │   ├── Piercing.jsx
+    │   ├── Tattoo.jsx
+    │   ├── Team.jsx
+    │   └── Welcome.jsx
+    ├── App.jsx
+    ├── App.css
+    ├── index.css
+    └── main.jsx
+
 ```
 
 ---

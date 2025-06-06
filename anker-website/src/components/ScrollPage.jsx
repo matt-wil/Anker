@@ -1,13 +1,14 @@
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
-
 import piercingNeedle from "../assets/images/needle.webp"
+import { useTranslation } from "react-i18next"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function ScrollPage() {
-  const words = ["Deine Haut", "Deine Geschichte", "Unser Handwerk"]
+  const {t} = useTranslation()
+  const words = [t("scrollPage.needle1"), t("scrollPage.needle2"), t("scrollPage.needle3")]
 
   useGSAP(() => {
     const needles = gsap.utils.toArray(".box")

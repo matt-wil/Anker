@@ -1,7 +1,9 @@
 import { CiInstagram } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next"
 
 export default function Footer() {
+  const {t} = useTranslation()
   return (
     <footer className="w-full mt-10 flex justify-center items-center h-20 text-sm italic">
       <div className="flex flex-col justify-center items-center text-center">
@@ -25,8 +27,8 @@ export default function Footer() {
           | Telefon:{" "}
           <a href="tel:+4976151462878">0761-51 46 28 78</a> | E-Mail:{" "}
           <a href="mailto:info@anker-tattoo.de">info@anker-tattoo.de</a> |{" "}
-          <Link to="datenschutz">Datenschutz</Link> |{" "}
-          <Link to="impressum">Impressum</Link> | {" "}
+          <Link to="datenschutz">{t("nav.data")}</Link> |{" "}
+          <Link to="impressum">{t("nav.legal")}</Link> | {" "}
           <Link to="/login">Admin</Link> 
         </p>
       </div>

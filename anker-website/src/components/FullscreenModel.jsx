@@ -3,16 +3,11 @@ const FullscreenModel = ({ imageUrl, onClose }) => {
 
     return (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
-          <button
-            onClick={onClose}
-            className="absolute top-6 right-6 text-white text-4xl hover:text-red-500"
-          >
-            &times;
-          </button>
           <img
+            onClick={onClose}
             src={imageUrl}
             alt="Fullscreen Tattoo Image"
-            className="max-w-[90vw] max-h-[90vh] object-contain shadow-lg"
+            className="max-w-[90vw] max-h-[90vh] object-contain shadow-lg cursor-zoom-out"
           />
         </div>
       )

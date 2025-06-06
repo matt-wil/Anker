@@ -3,9 +3,9 @@
     box-sizing: border-box;
 }
 
-*:hover {
+/**:hover {
   outline:1px red solid;
-}
+}*/
 
 body {
   background-color: white;

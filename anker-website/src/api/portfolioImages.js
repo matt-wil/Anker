@@ -10,7 +10,7 @@
 */
 
 export async function getPortfolioImagesByArtistId(artist_id) {
-    const response = await fetch(`http://127.0.0.1:5001/api/portfolio_images/by_artist/${artist_id}`);
+    const response = await fetch(`${import.meta.env.VITE_ANKER_API}/api/portfolio_images/by_artist/${artist_id}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }
