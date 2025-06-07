@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
-import { getDashboardContent } from "../../api/dashboard"
+import { getDashboardContent } from "../../api/auth/dashboard"
 import { FiSettings } from "react-icons/fi"
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
-
+import Tooltip from "../../components/Tooltip"
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState(null)
@@ -43,7 +42,6 @@ const Dashboard = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
     <div className="container mx-auto p-6">
             <h1 className="text-3xl font-bold mb-6">Anker Dashboard</h1>
-
             <section className="mb-8">
                 <h2 className="text-xl font-semibold mb-4">Our Artists</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -75,7 +73,17 @@ const Dashboard = () => {
                     <p className="mt-2 text-blue-500 cursor-pointer">View all portfolio images...</p>
                 )}
             </section>
-
+            
+            <div className="flex justify-end">
+            <Tooltip
+              text="Settings"
+              position="right"
+            >
+              <button type="button" className="cursor-pointer text-3xl p-3 hover:drop-shadow-2xl hover:bg-gray-700 rounded-full">
+                <FiSettings/>
+              </button>
+            </Tooltip>
+            </div>
             {/* Add sections for bookings, clients, and services using Tailwind classes */}
         </div>
     </div>

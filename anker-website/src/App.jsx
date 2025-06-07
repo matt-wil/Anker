@@ -14,12 +14,19 @@ import Aktionen from './pages/Aktionen'
 import ArtistGallery from './components/ArtistGallery'
 import NotFound from './pages/NotFound'
 import FAQ from './pages/FAQ'
+
+{/** Authentication Imports  */}
 import ProtectedRoutes from './pages/Auth/ProtectedRoutes'
 import Login from "./pages/Auth/Login"
 import Register from "./pages/Auth/Register"
 import Dashboard from './pages/Auth/Dashboard'
 import { AuthProvider } from './pages/Auth/AuthContext'
 import AuthLayout from './pages/Auth/AuthLayout'
+import AuthArtists from './pages/Auth/dbPages/AuthArtists'
+import AuthAktionen from './pages/Auth/dbPages/AuthAktionen'
+import AuthPortfolio from './pages/Auth/dbPages/AuthPortfolio'
+import Calendar from './pages/Auth/Calendar'
+import Kanban from './pages/Auth/Kanban'
 
 
 function App() {
@@ -58,6 +65,17 @@ function App() {
                   </ProtectedRoutes>
                 }>
                   <Route index element={<Dashboard />} />
+                  {/** Pages */}
+                   <Route path="artists" element={<AuthArtists/>} />
+                   <Route path="portfolio-bilder" element={<AuthPortfolio />} />
+                   <Route path="aktionen" element={<AuthAktionen />} />
+
+                  {/** Apps*/}
+                    <Route path="kanban" element={<Kanban />} />
+                    <Route path="calendar" element={<Calendar />} />
+
+                  {/** Charts */}
+                  {/** */}
                 </Route>
           </Routes>
         </PageTransition>

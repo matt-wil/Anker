@@ -11,12 +11,12 @@ const AuthLayout = () => {
 
 
   return (
-    <>
+    <div className="flex h-screen bg-gray-900 text-white">
         <Header />
-            <main className="p-4 bg-gray-900">
+            <main className="flex-1 overflow-y-auto p-4">
                 <Outlet />
             </main>
-    </>
+    </div>
   )
 }
 

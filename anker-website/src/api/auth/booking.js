@@ -1,6 +1,6 @@
-export async function getDashboardContent(){
+export async function getBookings(){
     try {
-        const response = await fetch(`${import.meta.env.VITE_ANKER_API}/api`);
+        const response = await fetch(`${import.meta.env.VITE_ANKER_API}/admin/api/bookings`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -10,3 +10,4 @@ export async function getDashboardContent(){
         console.error(err.messsage)
     }
 }
+
