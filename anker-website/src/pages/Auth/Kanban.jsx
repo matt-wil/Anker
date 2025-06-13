@@ -15,25 +15,27 @@ const Board = () => {
   const [error, setError] = useState(null);
   const [draggingCardId, setDraggingCardId] = useState(null);
 
-  useEffect(() => {
-    const fetchCards = async () => {
-      try {
-        setLoading(true)
-        const fetchedCards = await getKanbanCards()
-        setCards(fetchedCards)
-      } catch (err) {
-        console.error(err)
-        setError("Failed to fetch cards")
-      } finally {
-        setLoading(false)
-      }
+
+  const fetchCards = async () => {
+    try {
+      setLoading(true)
+      const fetchedCards = await getKanbanCards()
+      setCards(fetchedCards)
+    } catch (err) {
+      console.error(err)
+      setError("Failed to fetch cards")
+    } finally {
+      setLoading(false)
     }
+  }
+  useEffect(() => {
     fetchCards()
-  }, [])
+  }, []);
 
   const handleCardDragStart = (e, card) => {
     setDraggingCardId(card.id)
     e.dataTransfer.setData("cardId", card.id)
+    console.log("[handleCardDragStart] Data set in dataTransfer (read back immediately):", e.dataTransfer.getData("cardId"));
   }
 
   const handleCardDragEnd = () => setDraggingCardId(null)
@@ -84,6 +86,8 @@ const Board = () => {
   const handleBurnBarrelDrop = async (e) => {
     e.preventDefault()
     const cardId = e.dataTransfer.getData("cardId")
+    console.log("[handleBurnBarrelDrop] Retrieved cardId from dataTransfer:", cardId); // THIS IS THE CRITICAL LOG
+
     if (!cardId) return
 
     const originalCards = [...cards]
@@ -160,7 +164,6 @@ const Column = ({ title, headingColor, column, cards, setCards, handleCardDragSt
   }
 
   const filteredCards = cards.filter(card => card.column === column)
-
   return (
     <div className="w-56 shrink-0">
       <div className="mb-3 flex items-center justify-between">
@@ -184,7 +187,14 @@ const Column = ({ title, headingColor, column, cards, setCards, handleCardDragSt
 const Card = ({ title, id, column, handleDragStart, handleDragEnd, isDragging }) => (
   <>
     <DropIndicator beforeId={id} column={column} />
-    <div draggable onDragStart={(e) => handleDragStart(e, { title, id, column })} onDragEnd={handleDragEnd} className={`cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing ${isDragging ? "opacity-50" : ""}`}>
+    <div 
+      draggable 
+      onDragStart={(e) => {
+        console.log(`[Card Component] Dragging card "${title}". ID being set:`, id);
+      handleDragStart(e, { title, id, column })} 
+      }  
+      onDragEnd={handleDragEnd} 
+      className={`cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing ${isDragging ? "opacity-50" : ""}`}>
       <p className="text-sm text-neutral-100">{title}</p>
     </div>
   </>

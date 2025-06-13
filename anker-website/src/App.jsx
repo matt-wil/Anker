@@ -72,10 +72,7 @@ function App() {
 
                   {/** Apps*/}
                     <Route path="kanban" element={<Kanban />} />
-                    <Route path="calendar" element={<Calendar />} />
-
-                  {/** Charts */}
-                  {/** */}
+                    <Route path="kalendar" element={<Calendar />} />
                 </Route>
           </Routes>
         </PageTransition>

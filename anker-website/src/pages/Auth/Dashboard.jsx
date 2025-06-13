@@ -77,7 +77,7 @@ const Dashboard = () => {
             <div className="flex justify-end">
             <Tooltip
               text="Settings"
-              position="right"
+              position="left"
             >
               <button type="button" className="cursor-pointer text-3xl p-3 hover:drop-shadow-2xl hover:bg-gray-700 rounded-full">
                 <FiSettings/>

@@ -1,7 +1,11 @@
+import AuthCalendarComponent from "./dbComponents/AuthCalendarComponent"
+
 
 const Calendar = () => {
   return (
-    <div>Calendar</div>
+    <>
+      <AuthCalendarComponent />
+    </>
   )
 }
 

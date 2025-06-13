@@ -7,9 +7,9 @@ import i18n from "./utils/i18n/index.js"
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  //<StrictMode>
     <I18nextProvider i18n={i18n}>
       <App />
     </I18nextProvider>
-  </StrictMode>,
+  //</StrictMode>,
 )
