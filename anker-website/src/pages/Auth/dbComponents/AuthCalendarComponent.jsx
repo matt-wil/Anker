@@ -8,34 +8,69 @@ import EventPopUp from './EventPopUp'
 
 const localizer = momentLocalizer(moment)
 
+// fake events 
 const initialEvents = [
     {
         id: 1,
         title: "Ear Piercing",
+        clientName: "Alina Schmidt",
+        telephone: "01625833726",
+        clientId: null,
+        artistId: 3,
+        serviceId: null,
         start: new Date(moment().add(1, 'days').set({ hour:12, minute: 0 })),
         end: new Date(moment().add(1, 'days').set({ hour: 13, minute: 0 })),
+        notes: "Underage must bring ID and guardian",
+        booking_status: "pending",
+        created_at: new Date()
     }, 
     {
         id: 2,
-        title: "Labret Piercing",
-        start: new Date(moment().subtract(10, 'days').set({ hour:12, minute: 0 })),
-        end: new Date(moment().subtract(10, 'days').set({ hour: 13, minute: 0 })),
-    },    
+        title: "Eyebrown Piercing",
+        clientName: "Sandro Mclaud",
+        telephone: "01625833726",
+        clientId: null,
+        artistId: 3,
+        serviceId: null,
+        start: new Date(moment().add(2, 'days').set({ hour:12, minute: 0 })),
+        end: new Date(moment().add(2, 'days').set({ hour: 13, minute: 0 })),
+        notes: "friends price",
+        booking_status: "pending",
+        created_at: new Date()
+    },
     {
         id: 3,
         title: "Nipple Piercing",
-        start: new Date(moment().subtract(25, 'days').set({ hour:12, minute: 0 })),
-        end: new Date(moment().subtract(25, 'days').set({ hour: 13, minute: 0 })),
-    },    
+        clientName: "Daniel Sturm",
+        telephone: "01625833726",
+        clientId: null,
+        artistId: 3,
+        serviceId: null,
+        start: new Date(moment().add(3, 'days').set({ hour:12, minute: 0 })),
+        end: new Date(moment().add(3, 'days').set({ hour: 13, minute: 0 })),
+        notes: "may be 5 min late",
+        booking_status: "pending",
+        created_at: new Date()
+    },
     {
         id: 4,
-        title: "Belly Piercing",
-        start: new Date(moment().subtract(15, 'days').set({ hour:12, minute: 0 })),
-        end: new Date(moment().subtract(15, 'days').set({ hour: 13, minute: 0 })),
-    },    
+        title: "Labret Piercing",
+        clientName: "Jackson Smith",
+        telephone: "01625833726",
+        clientId: null,
+        artistId: 3,
+        serviceId: null,
+        start: new Date(moment().add(4, 'days').set({ hour:12, minute: 0 })),
+        end: new Date(moment().add(4, 'days').set({ hour: 13, minute: 0 })),
+        notes: "",
+        booking_status: "pending",
+        created_at: new Date()
+    },
 ]
 
 // next step make it persistant! 
+
+// initialEvents will be getBookings()
 
 const AuthCalendarComponent = () => {
     const [events, setEvents] = useState(initialEvents);

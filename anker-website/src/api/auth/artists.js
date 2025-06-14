@@ -1,4 +1,4 @@
-import api from "../../api/api"
+import api from "./api"
 import { getAuthHeaders } from "./getAuthHeaders"
 
 const getArtists = async () => {

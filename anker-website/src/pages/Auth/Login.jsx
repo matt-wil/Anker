@@ -26,9 +26,11 @@ const Login = () => {
         setError("")
         try {
             const res = await api.post('/auth/login', { username, password})
-            console.log(`Login successfully, response data: ${res.data}`)
-            login(res.data.access_token)
-            console.log(res.data.access_token)
+            console.log('access token', res.data.access_token)
+            console.log('refresh token', res.data.refresh_token)   
+            login({
+                accessToken: res.data.access_token,
+                refreshToken: res.data.refresh_token})
             navigate("/dashboard")
         } catch (error) {
             if (error.response && error.response.status === 400) {
