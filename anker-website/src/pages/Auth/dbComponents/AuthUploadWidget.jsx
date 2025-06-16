@@ -15,7 +15,12 @@ const AuthUploadWidget = ({ cloudinaryFolderPath }) => {
       }, function(error, result) {
         console.log(result)
       })
-    }, []);
+      return () => {
+        if (widgetRef.current) {
+          widgetRef.current.destroy();
+        }
+      }
+    }, [cloudinaryFolderPath]);
 
     return (
       <button 

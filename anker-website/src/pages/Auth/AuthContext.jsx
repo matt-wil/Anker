@@ -36,7 +36,8 @@ export const AuthProvider = ({ children }) => {
                   ) {
                     originalRequest._retry = true;
                     try {
-                      const res = await api.post("/auth/refresh", { refreshToken });
+                      const res = await api.post("/auth/refresh", null, { 
+                        headers: { Authorization: `Bearer ${refreshToken}` } });
                       const newAccessToken = res.data.accessToken;
                       localStorage.setItem("token", newAccessToken);
                       setToken(newAccessToken);
