@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react"
 import moment from "moment"
+import { deleteBooking } from "../../../api/auth/booking";
 
 
-const EventPopUp = ({ isOpen, onClose, onSave, date, event }) => {
+const EventPopUp = ({ isOpen, onClose, onSave, date, event, onDelete }) => {
     const [eventData, setEventData] = useState({
         id: "",
         title: "",
@@ -14,7 +15,6 @@ const EventPopUp = ({ isOpen, onClose, onSave, date, event }) => {
         start: "",
         end: "",
         notes: "",
-        booking_status: "pending",
         created_at: new Date()
     });
     const formRef = useRef();
@@ -32,7 +32,6 @@ const EventPopUp = ({ isOpen, onClose, onSave, date, event }) => {
                 start: moment(event.start).format("YYYY-MM-DDTHH:mm"),
                 end: moment(event.end).format("YYYY-MM-DDTHH:mm"),
                 notes: event.notes || "",
-                booking_status: event.booking_status || "pending",
             });
         } else if (date) {
             const defaultStart = moment(date);
@@ -48,7 +47,6 @@ const EventPopUp = ({ isOpen, onClose, onSave, date, event }) => {
                 start: defaultStart.format("YYYY-MM-DDTHH:mm"),
                 end: defaultEnd.format("YYYY-MM-DDTHH:mm"),
                 notes: "",
-                booking_status: "pending",
             });
         } else {
             setEventData({
@@ -62,7 +60,6 @@ const EventPopUp = ({ isOpen, onClose, onSave, date, event }) => {
                 start: "",
                 end: "",
                 notes: "",
-                booking_status: "pending",
             });
         }
     }, [isOpen, event, date]);
@@ -111,6 +108,22 @@ const EventPopUp = ({ isOpen, onClose, onSave, date, event }) => {
         onSave(eventDataToSubmit);
         onClose();
     };
+
+    const handleDeleteButton = async () => {
+        if (!eventData.id) {
+            console.warn("No event ID found. Cannot delete event.")
+            return
+        }
+        if (window.confirm("Wirklich löschen?")) {
+            try {
+                await deleteBooking(eventData.id)
+                onDelete(eventData.id)
+                onClose()
+        } catch (error) {
+            console.error(error)
+            alert("Fehler beim Löschen des Termins")
+        }
+    }}
 
     if (!isOpen) {
         return null;
@@ -189,6 +202,7 @@ const EventPopUp = ({ isOpen, onClose, onSave, date, event }) => {
                 </div>
                 <button type="submit" className="bg-green-600 mr-5 mt-5 p-2 rounded cursor-pointer">Speichern</button>
                 <button className="cursor-pointer bg-gray-600 p-2 rounded" type="button" onClick={onClose}>Zurück</button>
+                <button type="button" onClick={handleDeleteButton} className="bg-red-600 ml-5 mt-5 p-2 rounded cursor-pointer">Termin Löschen</button>
             </form>
         </div>
     </div>

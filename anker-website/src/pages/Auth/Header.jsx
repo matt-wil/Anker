@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import ankerLogo from "../../assets/vectors/WhiteAnkerLogo.svg"
 const Header = () => {
-    const headers = ['Artists', 'Portfolio Bilder', 'Aktionen', 'Kanban', 'Kalendar']
+    const headers = ['Bilder Hochladen', 'Kanban', 'Kalendar']
   return (
     <header className="w-64 h-full bg-gray-800 p-6 flex flex-col">
     <img src={ankerLogo} alt="Anker Logo" className="mb-4"/>

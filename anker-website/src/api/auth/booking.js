@@ -1,4 +1,4 @@
-import api from "./api"
+import api from "../api"
 import { getAuthHeaders } from "./getAuthHeaders"
 
 
@@ -18,13 +18,41 @@ async function getBookings(){
     }
 }
 
-async function addBooking() {
+async function addBooking(eventData) {
     try {
-        const response = await api.post(`/admin/api/bookings`, {authHeaders});
+        const response = await api.post(`/admin/api/bookings`, eventData, {authHeaders});
+        return response
     } catch (error) {
         console.error(error)
     }
 }
+
+async function updateBooking(eventId, eventData) {
+    try {
+        const response = await api.put(`/admin/api/bookings/${eventId}`, eventData, {authHeaders});
+        return response
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+async function deleteBooking(eventId) {
+    try {
+        const response = await api.delete(`/admin/api/bookings/${eventId}`, null, {authHeaders});
+        return response
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+
+export {
+    getBookings,
+    addBooking,
+    updateBooking,
+    deleteBooking
+}
+
 /**
  * Calendar Events
  * [
@@ -54,10 +82,3 @@ async function addBooking() {
  * created_at - datetime.now() = 2025-06-14 10:32:47.981389
  */
 
-function mutateBooking() {
-
-}
-
-export {
-    getBookings
-}

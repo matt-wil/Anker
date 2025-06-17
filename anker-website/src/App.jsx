@@ -22,9 +22,7 @@ import Register from "./pages/Auth/Register"
 import Dashboard from './pages/Auth/Dashboard'
 import { AuthProvider } from './pages/Auth/AuthContext'
 import AuthLayout from './pages/Auth/AuthLayout'
-import AuthArtists from './pages/Auth/dbPages/AuthArtists'
-import AuthAktionen from './pages/Auth/dbPages/AuthAktionen'
-import AuthPortfolio from './pages/Auth/dbPages/AuthPortfolio'
+import AuthUpload from './pages/Auth/dbPages/AuthUpload'
 import Calendar from './pages/Auth/Calendar'
 import Kanban from './pages/Auth/Kanban'
 
@@ -66,9 +64,7 @@ function App() {
                 }>
                   <Route index element={<Dashboard />} />
                   {/** Pages */}
-                   <Route path="artists" element={<AuthArtists/>} />
-                   <Route path="portfolio-bilder" element={<AuthPortfolio />} />
-                   <Route path="aktionen" element={<AuthAktionen />} />
+                   <Route path="bilder-hochladen" element={<AuthUpload/>} />
 
                   {/** Apps*/}
                     <Route path="kanban" element={<Kanban />} />
