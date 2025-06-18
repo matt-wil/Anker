@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next"
 export default function Footer() {
   const {t} = useTranslation()
   return (
-    <footer className="w-full mt-10 flex justify-center items-center h-20 text-sm italic">
+    <footer className="text-sm italic">
       <div className="flex flex-col justify-center items-center text-center">
         <a
           className="my-5 hover:animate-pulse"

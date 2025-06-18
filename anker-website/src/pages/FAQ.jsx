@@ -45,7 +45,7 @@ const FAQ = () => {
 
     return (
         <div className='flex flex-col justify-center items-center text-center m-4'>
-            <h1 className='header text-4xl md:text-7xl xl:text-9xl mb-8 font-bold'>{t('faq.header')}</h1>
+            <h1 className='text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl mb-8 font-bold'>{t('faq.header')}</h1>
 
             {faqCategories.map((category, catIndex) => (
                 <div className='md:max-w-[50dvw] w-auto' key={category.prefix}>

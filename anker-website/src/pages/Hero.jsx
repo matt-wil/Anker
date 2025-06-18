@@ -6,7 +6,18 @@ import { useGSAP } from "@gsap/react"
 import ScrollPage from "../components/ScrollPage"
 import About from "./About"
 import { useTranslation } from "react-i18next"
+import { AdvancedVideo } from "@cloudinary/react" 
+import { Cloudinary } from "@cloudinary/url-gen"
+import { Quality } from "@cloudinary/url-gen/qualifiers"
+import { auto } from "@cloudinary/url-gen/qualifiers/format"
 
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: import.meta.env.VITE_CLOUDINARY_NAME
+  }
+})
+
+const introVideo = cld.video("AnkerInstaVideo_xkzaxf").format(auto()).quality(Quality.auto())
 
 
 const Hero = () => {
@@ -34,12 +45,25 @@ const Hero = () => {
         </div>
         </div>
         <div className="flex justify-center items-center">
+        {/**
+         */}
+        <AdvancedVideo 
+          cldVid={introVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-img-clip-path max-sm:mx-5 max-sm:my-2 sm:w-full grayscale hover:grayscale-0"
+        />
+
+        {/** Original Image 
           <img 
             ref={imageRef}
             className="hero-img-clip-path max-sm:mx-5 max-sm:my-2 sm:w-full grayscale hover:grayscale-0" 
             src={ankerDesk}
             alt="images"
           />
+         */}
         </div>
       </div>
       <section>

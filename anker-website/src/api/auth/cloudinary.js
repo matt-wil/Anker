@@ -20,11 +20,10 @@ const uploadCloudinaryImageUrlToDatabase = async ({ imgUrl, artistName, descript
             image_url: imgUrl,
             description: description,
             category: category
-        }, {headers})
+        }, {headers: headers})
         return response.data;
     } catch (err) {
-        console.error(err.message)
-        throw new Error(err.message)
+        console.error("There was an error in th uploadCloudinaryImageUrlToDatabase function:", err.message, err)
     }
 }
 

@@ -47,7 +47,7 @@ body {
   justify-content: center;
   cursor: pointer;
 
-  background: linear-gradient(#1B2A30, #1B2A30), linear-gradient(#1B2A30 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--white), var(--blue));
+  background: linear-gradient(#C2F9EB,#1B2A30), linear-gradient(#1B2A30 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--white), var(--blue));
   background-origin: border-box;
   background-clip: padding-box, border-box, border-box;
   background-size: 200%;

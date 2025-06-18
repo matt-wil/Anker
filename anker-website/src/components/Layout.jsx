@@ -10,12 +10,12 @@ export default function Layout() {
         window.scrollTo(0, 0);
       }, [location.pathname]);
     return (
-        <>
+        <div className="flex flex-col min-h-screen">
             <Header />
-                <main>
+                <main className="flex-grow">
                     <Outlet />
                 </main>
             <Footer />
-        </>
+        </div>
     )
 }

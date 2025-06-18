@@ -6,9 +6,9 @@ async function getKanbanCards( cardId ){
         const headers = getAuthHeaders()
         let response;
         if (cardId) {
-            response = await api.get(`/admin/api/cards/${cardId}`, {headers})
+            response = await api.get(`/admin/api/cards/${cardId}`, {headers: headers})
         } else {
-            response = await api.get(`/admin/api/cards`, {headers})
+            response = await api.get(`/admin/api/cards`, {headers: headers})
         }
         return response.data;
     } catch (err) {
@@ -20,7 +20,7 @@ async function getKanbanCards( cardId ){
 async function updateKanbanCard(cardId, updates) {
     try {
         const headers = getAuthHeaders()
-        const response = await api.put(`/admin/api/cards/${cardId}`, updates, {headers})
+        const response = await api.put(`/admin/api/cards/${cardId}`, updates, {headers: headers})
         return response.data;
     } catch (err) {
         console.error(err.message)
@@ -32,7 +32,7 @@ async function deleteKanbanCard(idToDelete) {
     try {
         const headers = getAuthHeaders();
 
-        const response = await api.delete(`/admin/api/cards/${idToDelete}`, { headers });
+        const response = await api.delete(`/admin/api/cards/${idToDelete}`, {headers: headers });
         console.log(`Card ${idToDelete} deleted successfully.`);
         return response.data;
     } catch (error) {
@@ -44,7 +44,7 @@ async function deleteKanbanCard(idToDelete) {
 async function addKanbanCard(cardData) {
     try {
         const headers = getAuthHeaders()
-        const response = await api.post(`/admin/api/cards`, cardData, {headers})
+        const response = await api.post(`/admin/api/cards`, cardData, {headers: headers})
         return response.data;
     } catch (err) {
         console.error(err.message)

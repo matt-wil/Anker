@@ -41,16 +41,22 @@ const transformBookingFromAPI = (booking) => {
 };
 
 const AuthCalendarComponent = () => {
-    const [events, setEvents] = useState("");
+    const [events, setEvents] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null);
     const [isOpenEvent, setIsOpenEvent] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
 
     useEffect(() => {
-        getBookings().then((res) => {
-            setEvents(res.map(transformBookingFromAPI))
-            console.log(res)
-        })
+        const fetchAndSetBookings = async () => {
+            try {
+                const res = await getBookings()
+                setEvents(res.map(transformBookingFromAPI))
+                console.log(res)
+            } catch (err) {
+                console.error("Failed to fetch bookings in AuthCalendarComponent:", err)
+            }
+            }
+            fetchAndSetBookings()
     }, []);
 
     const handleSelectSlot = (slotInfo) => {

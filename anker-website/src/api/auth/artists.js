@@ -4,7 +4,7 @@ import { getAuthHeaders } from "./getAuthHeaders"
 const getArtists = async () => {
     try {
         const headers = getAuthHeaders()
-        const response = await api.get(`/admin/api/artists`, {headers})
+        const response = await api.get(`/admin/api/artists`, {headers: headers})
         return response.data.artists;
     } catch (err) {
         console.error(err.messsage)
@@ -15,7 +15,7 @@ const getArtists = async () => {
 const createArtist = async (artistData) => {
     try {
         const headers = getAuthHeaders()
-        const response = await api.post(`/admin/api/artists`, artistData, {headers})
+        const response = await api.post(`/admin/api/artists`, artistData, {headers: headers})
         return response.data;
     } catch (err) {
         console.error(err.messsage)
@@ -26,7 +26,7 @@ const createArtist = async (artistData) => {
 const updateArtist = async (artistId, updates) => {
     try {
         const headers = getAuthHeaders()
-        const response = await api.put(`/admin/api/artists/${artistId}`, updates, {headers})
+        const response = await api.put(`/admin/api/artists/${artistId}`, updates, {headers: headers})
         return response.data;
     } catch (err) {
         console.error(err.messsage)
@@ -37,7 +37,7 @@ const updateArtist = async (artistId, updates) => {
 const deleteArtist = async (artistId) => {
     try {
         const headers = getAuthHeaders()
-        const response = await api.delete(`/admin/api/artists/${artistId}`, {headers})
+        const response = await api.delete(`/admin/api/artists/${artistId}`, {headers: headers})
         return response.data;
     } catch (err) {
         console.error(err.messsage)

@@ -37,15 +37,15 @@ const Welcome = () => {
     <div className='relative' ref={comp}>
       <div id="intro-slider"
            className='h-screen kollektif font-p-10 bg-gray-50 absolute top-0 left-0 z-10 w-full flex flex-col gap-10 tracking-tight'>
-        <h1 id="title-1" className='mt-10 ml-10 text-3xl md:text-9xl'>Tattoo</h1>
-        <h1 id="title-2" className='ml-10 text-3xl md:text-9xl'>Piercing</h1>
-        <h1 id="title-3" className='ml-10 text-3xl md:text-9xl'>Beratung</h1>
+        <h1 id="title-1" className='mt-10 ml-10 text-6xl md:text-9xl'>Tattoo</h1>
+        <h1 id="title-2" className='ml-10 text-6xl md:text-9xl'>Piercing</h1>
+        <h1 id="title-3" className='ml-10 text-6xl md:text-9xl'>Beratung</h1>
       </div>
 
       <div className='h-dvh w-dvw flex bg-gray-950 justify-center items-center'>
         <SplitTextAnimate
           text="Dein Anker"
-          className='dein-anker kollektif-bold text-3xl sm:text-9xl font-bold text-white tracking-tighter'
+          className='dein-anker kollektif-bold text-6xl md:text-9xl font-bold text-white tracking-tighter'
           onComplete={() => navigate("/home")}
           trigger={startSplitAnim}
         />

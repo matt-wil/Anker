@@ -4,6 +4,21 @@ import { useState } from "react";
 const CloudUploadForm = ({ setFilePath, setImageDescriptionProp, setCategoryProp, imageDescription, category }) => {
   const [selectedValue, setSelectedValue] = useState(""); 
 
+
+  const generateDescription = (artist, selectedCategory) => {
+    if (artist === "WebsiteVeranstaltungen") {
+      return "Image of a Tattoo and Piercing Event Hosted by Anker Tattoo and Piercing Freiburg im Breisgau";
+    }
+    if (artist && selectedCategory) {
+      return `Image of a ${selectedCategory} done by Professional ${selectedCategory} Artist ${artist} at Anker Tattoo and Piercing Freiburg im Breisgau`;
+    }
+    if (artist) {
+      return `Image of a Tattoo or Piercing Professional Artist ${artist} at Anker Tattoo and Piercing Freiburg im Breisgau`;
+    }
+    return ""
+  }
+
+
   const handleSelectionChange = (event) => {
     const value = event.target.value;
     setSelectedValue(value);
@@ -15,7 +30,21 @@ const CloudUploadForm = ({ setFilePath, setImageDescriptionProp, setCategoryProp
 
     setFilePath(newPath);
     console.log("Selected cloudinary upload path: ", newPath);
+
+    setImageDescriptionProp(generateDescription(value, category));
+    if (value === "WebsiteVeranstaltungen") {
+      setCategoryProp("");
+    }
   };
+
+
+  const handleCategoryChange = (e) => {
+    const newCategory = e.target.value;
+    setCategoryProp(newCategory);
+    setImageDescriptionProp(generateDescription(selectedValue, newCategory));
+  }
+
+
 
   return (
     <section className="mb-8">
@@ -38,7 +67,7 @@ const CloudUploadForm = ({ setFilePath, setImageDescriptionProp, setCategoryProp
         {selectedValue !== "WebsiteVeranstaltungen" && selectedValue !== "" &&
         <select
           value={category}
-          onChange={(e) => setCategoryProp(e.target.value)}
+          onChange={handleCategoryChange}
           className="bg-gray-700 p-3 rounded-lg text-white text-lg focus:ring-2 focus:ring-purple-500 focus:outline-none transition duration-200 ease-in-out cursor-pointer"
         >
           <option disabled value="">Select a Category</option>

@@ -6,12 +6,17 @@ const Lang = () => {
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng)
     }
+
   return (
     <div>
-        <select onChange={(e) => changeLanguage(e.target.value)} className="cursor-pointer">
-        <option value="de">Deutsch</option>
-        <option value="en">English</option>
-        <option value="fr">Français</option>
+        <select 
+          name="language-selector"
+          id="language-selector"
+          aria-label="language selector"
+          onChange={(e) => changeLanguage(e.target.value)} className="cursor-pointer">
+          <option aria-label="Deutsch" value="de">Deutsch</option>
+          <option aria-label="English" value="en">English</option>
+          <option aria-label="Français" value="fr">Français</option>
         </select>
     </div>
   )

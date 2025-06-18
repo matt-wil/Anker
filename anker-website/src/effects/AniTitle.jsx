@@ -24,7 +24,7 @@ const AniTitle = ({title, className}) => {
 
   return (
     <h1 
-        className={`header break-normal whitespace-pre-wrap hyphens-auto ${className}`}
+        className={`header ${className}`}
         aria-label={title}
     >
         {title}

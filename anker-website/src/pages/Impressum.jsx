@@ -1,54 +1,64 @@
+import { useTranslation } from 'react-i18next'
+import { useRef, useState } from 'react'
+
 const Impressum = () => {
+  const {t} = useTranslation()
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
+  const [circleSize, setCircleSize] = useState("100px");
+  const [isMaskActive, setIsMaskActive] = useState(false);
+  const containerRef = useRef(null)
+
+  const handleClick = () => {
+    setCircleSize( circleSize === "100px" ? "200px" : "100px");
+  }
+
+  const handleMouseMove = (e) => {
+    if (containerRef.current) {
+      const { left, top } = containerRef.current.getBoundingClientRect();
+      setMouseX(e.clientX - left);
+      setMouseY(e.clientY - top);
+    }
+  }
+
+  const handleMouseEnter = () => {
+    setIsMaskActive(true);
+  };
+
+  const handleMouseExit = () => {
+    setIsMaskActive(false);
+  };
+
+  const clipPathStyle = {
+    clipPath: isMaskActive
+      ? `circle(${circleSize} at ${mouseX}px ${mouseY}px)`
+      : `circle(${circleSize} at 50% 50%)`,
+  }
+
     return (
-      <div className="flex flex-col justify-center items-center gap-5">
-          <h2 className="text-7xl font-bold">Impressum</h2>
+      <section 
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseExit={handleMouseExit}
+      onClick={handleClick}
+      className="relative"
+      >
+      <section className="flex flex-col justify-center items-center gap-5">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">{t("impressum.header")}</h2>
           <div>
-          <p className="p-5 md:px-15">
-  Dienstanbieter / Verantwortlicher i.S.d. §§ 6 TDG, 6 MDStV:
-  Geschäftsführer: Mateusz Miklis
-  
-  Anker Tattoo
-  An der Mehlwaage 2
-  79098 Freiburg
-  
-  Tel. 0761-51462878
-  e-mail: anker-tattoo@gmx.de
-  
-  USt-IdNr.: DE288203238
-  
-  Inhaltlich verantwortlich i.S.d. §10 Absatz 3 MDStV:
-  Geschäftsführer Mateusz Miklis
-  
-  Anker Tattoo
-  An der Mehlwaage 2
-  79098 Freiburg
-  
-  Tel. 0761-51462878
-  e-mail: anker-tattoo@gmx.de
-  
-  USt-IdNr.: DE288203238
-  
-  Nutzungsrechte Copyright by
-  Anker Tattoo
-  An der Mehlwaage 2
-  79098 Freiburg
-  
-  Tel. 0761-51462878
-  e-mail: anker-tattoo@gmx.de
-  
-  Alle Rechte vorbehalten.
-  Die Urheberrechte dieser Web-Site liegen vollständig bei der Anker Tattoo.
-  Bildmotive dürfen nur für redaktionelle Zwecke genutzt werden. Die Verwendung ist honorarfrei bei Quellenangabe und Übersendung von zwei kostenlosen Belegexemplaren an die Anker Tattoo im Freiburg. Grafische Veränderungen – außer zum Freistellen des Hauptmotivs – sind nicht gestattet.
-  Die hier zur Verfügung gestellten Web-Seiten und Dokumente dürfen nur zu Informationszwecken verwendet werden.
-  Diese Seiten und Dokumente dürfen nicht kommerziell verwertet werden.
-  Jede Kopie (dies gilt auch für Auszüge) muss diesen Urheberrechtsnachweis enthalten.
-  
-  Haftungshinweis:
-  Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
-  Die Anker Tattoo ist bemüht, ihr Webangebot stets aktuell und inhaltlich richtig sowie vollständig anzubieten. Dennoch ist das Auftreten von Fehlern nicht völlig auszuschließen. Die Anker Tattoo übernimmt keine Haftung für die Aktualität, die inhaltliche Richtigkeit sowie für die Vollständigkeit der in ihrem Webangebot eingestellten Informationen, es sei denn die Fehler wurden vorsätzlich oder grob fahrlässig aufgenommen. Dies bezieht sich auf eventuelle Schäden materieller oder ideeller Art Dritter, die durch die Nutzung dieses Webangebotes verursacht wurden.
-              </p>
+          <p className="p-5 md:px-15">{t("impressum.content")}</p>
           </div>
-      </div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 text-center opacity-0">WE WOULD LOVE TO SEE YOU COME AND VISIT US!</h2>
+      </section>
+      <section className="absolute top-0 flex flex-col justify-center items-center gap-5 bg-[#c2f9eb]/40 text-[#FF8573]" style={clipPathStyle}>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">{t("impressum.header")}</h2>
+          <div>
+          <p className="p-5 md:px-15">{t("impressum.content")}</p>
+          </div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 text-center">WE WOULD LOVE TO SEE YOU COME AND VISIT US!</h2>
+      </section>
+      </section>
     )
   }
   

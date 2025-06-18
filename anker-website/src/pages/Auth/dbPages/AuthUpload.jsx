@@ -4,8 +4,8 @@ import { useState } from "react"
 
 const AuthUpload = () => {
   const [cloudinaryFilePath, setCloudinaryFilePath] = useState("");
-  const [imageDescription, setImageDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [imageDescription, setImageDescription] = useState("");
 
 
   return (

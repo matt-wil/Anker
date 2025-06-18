@@ -2,46 +2,43 @@ import api from "../api"
 import { getAuthHeaders } from "./getAuthHeaders"
 
 
-const authHeaders = getAuthHeaders()
-
-
 async function getBookings(){
     try {
-        const response = await fetch(`${import.meta.env.VITE_ANKER_API}/admin/api/bookings`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        return data;
-    } catch (err) {
-        console.error(err.messsage)
+        const authHeaders = getAuthHeaders()
+        const response = await api.get(`/admin/api/bookings`, {headers: authHeaders});
+        return response.data;
+    } catch (error) {
+        console.error("Error in function getBookings():", error.response ? error.response.data : error.message);
     }
 }
 
 async function addBooking(eventData) {
     try {
-        const response = await api.post(`/admin/api/bookings`, eventData, {authHeaders});
-        return response
+        const authHeaders = getAuthHeaders()
+        const response = await api.post(`/admin/api/bookings`, eventData, {headers: authHeaders});
+        return response.data
     } catch (error) {
-        console.error(error)
+        console.error("Error in function addBooking():", error.response ? error.response.data : error.message);
     }
 }
 
 async function updateBooking(eventId, eventData) {
     try {
-        const response = await api.put(`/admin/api/bookings/${eventId}`, eventData, {authHeaders});
-        return response
+        const authHeaders = getAuthHeaders()
+        const response = await api.put(`/admin/api/bookings/${eventId}`, eventData, {headers: authHeaders});
+        return response.data
     } catch (error) {
-        console.error(error)
+        console.error("Error in function updateBooking():", error.response ? error.response.data : error.message);
     }
 }
 
 async function deleteBooking(eventId) {
     try {
-        const response = await api.delete(`/admin/api/bookings/${eventId}`, null, {authHeaders});
-        return response
+        const authHeaders = getAuthHeaders()
+        const response = await api.delete(`/admin/api/bookings/${eventId}`, {headers: authHeaders});
+        return response.data
     } catch (error) {
-        console.error(error)
+        console.error("Error in function deleteBooking():", error.response ? error.response.data : error.message);
     }
 }
 

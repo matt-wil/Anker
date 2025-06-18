@@ -50,7 +50,7 @@ const MainNavLinks = ({toggleMainBarNav, isMainOpen}) => {
       <div className='relative'>
       <button className="cursor-pointer" onClick={toggleMainBarNav}>{isMainOpen ? <X /> : <Menu/>}</button>
       {isMainOpen && (
-        <div className='bg-white/60 pl-2 absolute flex flex-col gap-2 mr-5 top-8 left-0 mt-1 py-2 w-32 z-10'>
+        <div className='bg-[#c2f9eb]/40 pl-2 absolute flex flex-col gap-2 mr-5 top-8 left-0 mt-1 py-2 w-32 z-10'>
           <ExtraMainNavLinks />
        </div>)}
        </div>

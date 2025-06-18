@@ -22,7 +22,7 @@ const ArtistGallery = () => {
     <div className='text-4xl sm:text-7xl text-center mb-5'>
       <h1>{artistName}s Portfolio</h1>
     </div>
-    <div className='flex flex-row flex-wrap justify-center items-center gap-5 max-h-50vh'>
+    <div className='flex flex-row flex-wrap justify-center items-center gap-5 max-h-50vh mx-10'>
             {images.map(image => (
                 <ImageCard
                     key={image.image_id}
