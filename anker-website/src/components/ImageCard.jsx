@@ -19,20 +19,18 @@ const ImageCard = ({ src, alt, className, onClick}) => {
     }
   
     const publicId = getPublicId(src)
-    const cldImg = cloudinary.image(publicId).format("auto")
+    const cldImg = cloudinary.image(publicId).format("auto").quality("auto")
 
 
   return (
     <>
-        <div className=''>
-            <AdvancedImage 
-                cldImg={cldImg} 
-                alt={alt} 
-                className={`w-64 h-64 object-cover rounded-2xl shadow-2xl cursor-zoom-in ${className}`}
-                plugins={[lazyload(),responsive(),placeholder()]}
-                onClick={onClick}
-                />
-        </div>
+      <AdvancedImage 
+          cldImg={cldImg} 
+          alt={alt} 
+          className={`w-64 h-64 object-cover rounded-2xl shadow-2xl cursor-zoom-in ${className}`}
+          plugins={[lazyload(),responsive(),placeholder()]}
+          onClick={onClick}
+          />
     </>
   )
 }

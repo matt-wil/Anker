@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useRef, useState } from 'react'
+import { GiOpenTreasureChest } from 'react-icons/gi'
+import Tooltip from '../components/Tooltip'
 
 const Impressum = () => {
   const {t} = useTranslation()
@@ -49,14 +51,14 @@ const Impressum = () => {
           <div>
           <p className="p-5 md:px-15">{t("impressum.content")}</p>
           </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 text-center opacity-0">WE WOULD LOVE TO SEE YOU COME AND VISIT US!</h2>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 text-center opacity-0">{<GiOpenTreasureChest />}</h2>
       </section>
       <section className="absolute top-0 flex flex-col justify-center items-center gap-5 bg-[#c2f9eb]/40 text-[#FF8573]" style={clipPathStyle}>
           <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold">{t("impressum.header")}</h2>
           <div>
           <p className="p-5 md:px-15">{t("impressum.content")}</p>
           </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 text-center">WE WOULD LOVE TO SEE YOU COME AND VISIT US!</h2>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 text-center">{<Tooltip text='Anker`s Treasure Chest' position='bottom'><GiOpenTreasureChest onClick={() =>alert("Now you have found Ankers Treasure come in store and try your luck on the Glücksrad!")} /></Tooltip>}</h2>
       </section>
       </section>
     )

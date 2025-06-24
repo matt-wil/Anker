@@ -67,11 +67,11 @@ useGSAP(() => {
         <h1 ref={headerRef} className="about-header text-6xl sm:text-9xl font-bold mb-4">{t("about.header")}</h1>
         <h2 className="text-3xl mb-4">{t('about.subHeader')}</h2>
         <div className="md:max-w-[75dvw] w-auto">
-          <div className="">{t("about.text1")}</div>
-          <div className="">{t("about.text2")}</div>
-          <div className="">{t("about.text3")}</div>
-          <div className="">{t("about.text4")}</div>
-          <div className="">{t("about.text5")}</div>
+          <div className="m-6 max-w-150 text-center">{t("about.text1")}</div>
+          <div className="m-6 max-w-150 text-center">{t("about.text2")}</div>
+          <div className="m-6 max-w-150 text-center">{t("about.text3")}</div>
+          <div className="m-6 max-w-150 text-center">{t("about.text4")}</div>
+          <div className="m-6 max-w-150 text-center">{t("about.text5")}</div>
         </div>
       </div>
     </div>

@@ -48,11 +48,10 @@ const FAQ = () => {
             <h1 className='text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl mb-8 font-bold'>{t('faq.header')}</h1>
 
             {faqCategories.map((category, catIndex) => (
-                <div className='md:max-w-[50dvw] w-auto' key={category.prefix}>
-                    <h2 className='text-2xl md:text-4xl xl:text-7xl mt-10 mb-2 font-bold'>
+                <div className='md:max-w-[50dvw] w-auto' key={catIndex}>
+                    <h2 className='text-2xl md:text-4xl xl:text-7xl mt-10 mb-6 font-bold'>
                         {t(`faq.subHeader${category.headerKeyPart}`)}
                     </h2>
-                    <hr/>
                     {[...Array(category.count)].map((_, questionIndex) => {
                         const questionNum = questionIndex + 1; 
                         const questionKey = `faq.question${category.prefix}${questionNum}`;
@@ -69,7 +68,7 @@ const FAQ = () => {
                             <div key={combinedIndex}>
                                 <h3
                                     onClick={() => handleToggle(combinedIndex)}
-                                    className='md:text-3xl xl:text-4xl font-bold m-4 cursor-pointer hover:animate-pulse bg-[#1B2A30] border-white text-white rounded-md p-4'
+                                    className='md:text-3xl xl:text-4xl font-bold m-4 cursor-pointer hover:animate-pulse bg-[#c2f9eb]/60 border-white rounded-md p-4'
                                 >
                                     {questionText}
                                 </h3>

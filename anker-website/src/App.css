@@ -29,6 +29,10 @@ body {
   --white: #f0f0f0;
   --amber: #B06821;
   --ankerBlue: #1B2A30;
+  --seafoam: #C2F9EB;
+  --coral: #ff8573;
+  --midAqua: #4ecdc4;
+  --sandy: #fdfbf6;
 }
 
 .nav-button-effect:hover {
@@ -46,8 +50,7 @@ body {
   display: flex;
   justify-content: center;
   cursor: pointer;
-
-  background: linear-gradient(#C2F9EB,#1B2A30), linear-gradient(#1B2A30 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--white), var(--blue));
+  background: linear-gradient(var(--seafoam),var(--ankerBlue)), linear-gradient(var(--ankerBlue) 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)), linear-gradient(90deg, var(--white), var(--ankerBlue));
   background-origin: border-box;
   background-clip: padding-box, border-box, border-box;
   background-size: 200%;
@@ -56,7 +59,7 @@ body {
 
 .white-glowing-button::before {
   content: '';
-  background: linear-gradient(90deg, var(--white), var(--blue));
+  background: linear-gradient(90deg, var(--white), var(--ankerBlue));
   height: 30%;
   width: 60%;
   position: absolute;
@@ -65,6 +68,10 @@ body {
   background-size: 200%;
   animation: animate 2s infinite linear;
   filter: blur(calc(0.8 * var(--m)));
+}
+
+.white-glowing-button:hover, .white-glowing-button:hover::before {
+  animation: animate 0.5s infinite linear;
 }
 
 .glowing-button{
@@ -100,10 +107,6 @@ body {
 }
 
 .glowing-button:hover, .glowing-button:hover::before {
-  animation: animate 0.5s infinite linear;
-}
-
-.white-glowing-button:hover, .white-glowing-button:hover::before {
   animation: animate 0.5s infinite linear;
 }
 

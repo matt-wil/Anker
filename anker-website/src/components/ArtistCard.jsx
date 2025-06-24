@@ -25,7 +25,7 @@ const ArtistCard = ({ artist }) => {
 
   return (
     <div 
-      className="relative bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+      className="relative bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-3000"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

@@ -7,6 +7,7 @@ const Welcome = () => {
   const comp = useRef(null)
   const navigate = useNavigate()
   const [startSplitAnim, setStartSplitAnim] = useState(false)
+  const [startSound, setStartSound] = useState(false);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -14,13 +15,14 @@ const Welcome = () => {
         .from(['#title-1', '#title-2', '#title-3'], {
           opacity: 0,
           y: "+=30",
-          stagger: 0.5,
+          stagger: 0.5
         })
         .to(['#title-1', '#title-2', '#title-3'], {
           opacity: 0,
           y: "-=30",
           delay: 0.3,
-          stagger: 0.5
+          stagger: 0.5,
+          onComplete: () => setStartSound(true)
         })
         .to('#intro-slider', {
           xPercent: "-100",
@@ -32,6 +34,11 @@ const Welcome = () => {
 
     return () => ctx.revert()
   }, [])
+
+  if (startSound) {
+    const audio = new Audio("/tattoomachine.mp3")
+    audio.play()
+  }
 
   return (
     <div className='relative' ref={comp}>

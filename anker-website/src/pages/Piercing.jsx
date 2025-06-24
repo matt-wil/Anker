@@ -1,16 +1,30 @@
 import { getArtistsByProfession } from "../api/artists"
 import ArtistCard from "../components/ArtistCard"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AniTitle from "../effects/AniTitle";
+import { useTranslation } from "react-i18next"
+import PiercingList from "../components/PiercingList";
 
 
 export default function Tattooists() {
   const [artists, setArtists] = useState([]);
+  const [isPriceListOpen, setIsPriceListOpen] = useState(false);
+  const piercingListRef = useRef(null);
+  const {t} = useTranslation()
 
   useEffect(() => {
     getArtistsByProfession('Piercer').then(setArtists);
   }, []);
-  console.log(artists)
+   
+  const handlePriceListClick = () => {
+    setIsPriceListOpen(prev => !prev);
+  }
+
+  useEffect(() => {
+    if (isPriceListOpen && piercingListRef.current) {
+      piercingListRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  })
 
 
   return (
@@ -23,6 +37,14 @@ export default function Tattooists() {
         {artists.map(artist => (
           <ArtistCard key={artist.artist_id} artist={artist} />
         ))}
+      </div>
+      <div className="flex justify-center items-center">
+        <button onClick={handlePriceListClick} className="white-glowing-button m-10">{t("piercingPriceList.title")}</button>
+      </div>
+      <div ref={piercingListRef}>
+      {isPriceListOpen &&
+          <PiercingList />
+        }
       </div>
     </div>
   );

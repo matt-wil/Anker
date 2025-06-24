@@ -51,7 +51,7 @@ const Datenschutz = () => {
         <div>
         <p className="p-5 md:px-15">{t("datenschutz.content")}</p>
         </div>
-        <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 opacity-0 text-center">WE WOULD LOVE TO SEE YOU COME AND VISIT US!</h2>
+        <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 opacity-0 text-center">May your data be safe as a pirate's buried treasure!</h2>
     </section>
 
     <section className="absolute top-0 w-[100%] flex flex-col justify-center items-center gap-5 bg-[#c2f9eb]/40 text-[#FF8573]" style={clipPathStyle}>
@@ -59,7 +59,7 @@ const Datenschutz = () => {
         <div>
         <p className="p-5 md:px-15">{t("datenschutz.content")}</p>
         </div>
-        <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 text-center">WE WOULD LOVE TO SEE YOU COME AND VISIT US!</h2>
+        <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl m-10 text-center">May your data be safe as a pirate's buried treasure!</h2>
     </section>
     </section>
   )

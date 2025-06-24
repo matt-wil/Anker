@@ -24,7 +24,7 @@ export default function ScrollPage() {
           opacity: 1,
           scrollTrigger: {
             trigger: el,
-            start: "top 80%",
+            start: "top 60%",
             end: "top 30%",
             scrub: true,
           },
