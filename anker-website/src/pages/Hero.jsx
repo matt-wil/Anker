@@ -53,7 +53,7 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="hero-img-clip-path max-sm:mx-5 max-sm:my-2 sm:w-full grayscale hover:grayscale-0"
+          className="hero-img-clip-path max-sm:mx-5 max-sm:my-2 sm:w-full"
         />
 
         {/** Original Image 
