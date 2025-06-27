@@ -4,6 +4,8 @@ import { AdvancedImage} from "@cloudinary/react"
 import { Cloudinary } from '@cloudinary/url-gen/index';
 import { Resize } from "@cloudinary/url-gen/actions"
 import { lazyload, responsive, placeholder } from '@cloudinary/react';
+import { useTranslation } from 'react-i18next';
+
 
 const cloudinary = new Cloudinary({
   cloud: {
@@ -11,8 +13,13 @@ const cloudinary = new Cloudinary({
   }
 })
 
+
 const ArtistCard = ({ artist }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { i18n } = useTranslation()
+  const curentLang = i18n.language
+  const bio = curentLang === "en" ? artist.bio_en : artist.bio
+
 
   // Cloudinary 
   const getPublicId = (url) => {
@@ -40,7 +47,7 @@ const ArtistCard = ({ artist }) => {
       </div>
       {isHovered && (
         <div className="absolute inset-0 bg-white/60 bg-opacity-70 text-black flex flex-col justify-end p-4 transition-opacity duration-300">
-          <p className=" mt-100 mb-4 text-sm md:text-lg text-center">{artist.bio}</p>
+          <p className=" mt-100 mb-4 text-sm md:text-lg text-center">{bio}</p>
           <Link
             to={`/home/artists/${artist.artist_id}/gallery`}
             state={{artistName: artist.name}}
