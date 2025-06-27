@@ -63,7 +63,7 @@ useGSAP(() => {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-[#1b2a30] px-6 py-32">
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 py-32">
         <h1 ref={headerRef} className="about-header text-6xl sm:text-9xl font-bold mb-4">{t("about.header")}</h1>
         <h2 className="text-3xl mb-4">{t('about.subHeader')}</h2>
         <div className="md:max-w-[75dvw] w-auto">

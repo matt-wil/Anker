@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next'
 
 const navLinkStyle = ({ isActive }) =>
   `rounded group relative pb-1 transition-all duration-300 transform ${
-    isActive ? 'text-gray-500 after:scale-x-100' : 'after:scale-x-0'
-  } hover:scale-[1.025] hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-in-out after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-black after:origin-left`
+    isActive ? 'text-[#c2f9eb] after:scale-x-100' : 'after:scale-x-0'
+  } hover:scale-[1.025] hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-in-out after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-full after:bg-[#c2f9eb] after:origin-left`
 
   
 
@@ -19,13 +19,14 @@ const NavLinks = () => {
       <NavLink className={navLinkStyle} to="tattoo">{t("nav.tattoo")}</NavLink>
       <NavLink className={navLinkStyle} to="piercing">{t("nav.piercing")}</NavLink>
       <NavLink className={navLinkStyle} to="contact">{t("nav.contact")}</NavLink>
-      <NavLink className={navLinkStyle} to="datenschutz">{t("nav.data")}</NavLink>
-      <NavLink className={navLinkStyle} to="impressum">{t("nav.legal")}</NavLink>
       <NavLink className={navLinkStyle} to="aktionen">{t("nav.promo")}</NavLink>
       <NavLink className={navLinkStyle} to="faq">{t("nav.faq")}</NavLink>
+      <NavLink className={navLinkStyle} to="datenschutz">{t("nav.data")}</NavLink>
+      <NavLink className={navLinkStyle} to="impressum">{t("nav.legal")}</NavLink>
     </>
   )
 }
+
 
 const ExtraMainNavLinks = () => {
   const {t} = useTranslation()
@@ -47,13 +48,10 @@ const MainNavLinks = ({toggleMainBarNav, isMainOpen}) => {
       <NavLink className={navLinkStyle} to="tattoo">{t("nav.tattoo")}</NavLink>
       <NavLink className={navLinkStyle} to="piercing">{t("nav.piercing")}</NavLink>
       <NavLink className={navLinkStyle} to="contact">{t("nav.contact")}</NavLink>
-      <div className='relative'>
       <button className="cursor-pointer" onClick={toggleMainBarNav}>{isMainOpen ? <X /> : <Menu/>}</button>
-      {isMainOpen && (
-        <div className='bg-[#c2f9eb]/40 pl-2 absolute flex flex-col gap-2 mr-5 top-8 left-0 mt-1 py-2 w-32 z-10'>
+      {isMainOpen && 
           <ExtraMainNavLinks />
-       </div>)}
-       </div>
+      }
     </>
   )
 }

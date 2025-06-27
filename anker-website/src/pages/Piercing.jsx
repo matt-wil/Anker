@@ -33,7 +33,7 @@ export default function Tattooists() {
         title="Professional Body Piercers" 
         className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-center font-bold mb-10">
       </AniTitle>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {artists.map(artist => (
           <ArtistCard key={artist.artist_id} artist={artist} />
         ))}

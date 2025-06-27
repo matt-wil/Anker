@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom"
 import ankerLogo from "../../assets/vectors/WhiteAnkerLogo.svg"
+import Tooltip from "../../components/Tooltip.jsx"
+
+
 const Header = () => {
     const headers = ['Bilder Hochladen', 'Kanban', 'Kalendar']
   return (
-    <header className="w-64 h-full bg-gray-800 p-6 flex flex-col">
-    <img src={ankerLogo} alt="Anker Logo" className="mb-4"/>
+    <header className="sm:w-64 w-34 h-full bg-gray-800 p-6 flex flex-col">
+    <Tooltip text="Click to go back to the homepage" position="right">
+      <img src={ankerLogo} alt="Anker Logo" onClick={() => window.location.href = "/home"} className="mb-4 cursor-pointer"/>
+    </Tooltip>
         <nav className="flex-1">
             <ul className="flex flex-col gap-4">
                 {headers.map((header, index) => 

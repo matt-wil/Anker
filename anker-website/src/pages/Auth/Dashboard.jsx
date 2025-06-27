@@ -43,7 +43,7 @@ const Dashboard = () => {
     <div className="container mx-auto p-6">
             <h1 className="text-3xl font-bold mb-6">Anker Dashboard</h1>
             <section className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Our Artists</h2>
+                <h2 className="text-xl font-semibold mb-4">Unser Artists</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {dashboardData.artists.map(artist => (
                         <div key={artist.artist_id} className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -63,14 +63,14 @@ const Dashboard = () => {
 
             {/** Portfolio Images */}
             <section className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Portfolio Images</h2>
+                <h2 className="text-xl font-semibold mb-4">Portfolio Bilder</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                     {dashboardData.portfolio_images.slice(0, 10).map(image => (
                         <img key={image.image_id} src={image.image_url} alt={image.description} className="w-full h-32 object-cover rounded-md shadow-sm" />
                     ))}
                 </div>
                 {dashboardData.portfolio_images.length > 10 && (
-                    <p className="mt-2 text-blue-500 cursor-pointer">View all portfolio images...</p>
+                    <p className="mt-2 text-blue-500 cursor-pointer">Zeigt alle Portfolio Bilder...</p>
                 )}
             </section>
             

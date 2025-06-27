@@ -24,7 +24,7 @@ export default function ScrollPage() {
           opacity: 1,
           scrollTrigger: {
             trigger: el,
-            start: "top 60%",
+            start: "top 50%",
             end: "top 30%",
             scrub: true,
           },
@@ -53,7 +53,7 @@ export default function ScrollPage() {
 
   return (
     <>
-      <section className="bg-[#1B2A30] py-20">
+      <section className="bg-gradient-to-t from-[#1a2c42]/0 from-10% via-[#4ecdc4] via-30% to-[#1b2a30] to-90% py-20">
         <div className="space-y-20 ml-10">
           {words.map((word, i) => (
             <div key={i} className="flex items-center gap-6 min-w-[300px]">

@@ -25,14 +25,14 @@ const ArtistCard = ({ artist }) => {
 
   return (
     <div 
-      className="relative bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-3000"
+      className="relative bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-100"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <AdvancedImage
         cldImg={cldImg}
         alt={`Anker Tattoo and Piercing Freiburg Artist ${artist.name}`}
-        className='w-full h-140 object-cover rounded-t-2xl'
+        className='w-full h-140 lg:h-200 object-cover rounded-t-2xl'
         plugins={[lazyload(),responsive(),placeholder()]}
       />
       <div className='p-4'>
@@ -40,7 +40,7 @@ const ArtistCard = ({ artist }) => {
       </div>
       {isHovered && (
         <div className="absolute inset-0 bg-white/60 bg-opacity-70 text-black flex flex-col justify-end p-4 transition-opacity duration-300">
-          <p className=" mt-100 mb-4 text-lg text-center">{artist.bio}</p>
+          <p className=" mt-100 mb-4 text-sm md:text-lg text-center">{artist.bio}</p>
           <Link
             to={`/home/artists/${artist.artist_id}/gallery`}
             state={{artistName: artist.name}}

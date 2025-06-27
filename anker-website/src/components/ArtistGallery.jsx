@@ -29,7 +29,7 @@ const ArtistGallery = () => {
                     src={image.image_url}
                     alt={image.description || 'Portfolio Image'}
                     onClick={() => setSelectedImage(image.image_url)}
-                    className="cursor-pointer hover:scale-105 transition-transform duration-200"
+                    className="cursor-pointer hover:scale-105 transition-transform duration-200 w-64 h-64"
                 />
             ))}
 
