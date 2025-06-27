@@ -46,7 +46,6 @@ function App() {
                   <Route path="impressum" element={<Impressum />} />
                   <Route path="aktionen" element={<Aktionen />} />
                   <Route path='artists/:artist_id/gallery' element={<ArtistGallery />} />
-                  <Route path='artists/:artist_id/gallery' element={<ArtistGallery />} />
                   <Route path="faq" element={<FAQ />} />
               <Route path="*" element={<NotFound />} />
               </Route>
