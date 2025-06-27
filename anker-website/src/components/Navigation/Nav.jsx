@@ -21,48 +21,12 @@ const NavLinks = () => {
       <NavLink className={navLinkStyle} to="contact">{t("nav.contact")}</NavLink>
       <NavLink className={navLinkStyle} to="aktionen">{t("nav.promo")}</NavLink>
       <NavLink className={navLinkStyle} to="faq">{t("nav.faq")}</NavLink>
-      <NavLink className={navLinkStyle} to="datenschutz">{t("nav.data")}</NavLink>
-      <NavLink className={navLinkStyle} to="impressum">{t("nav.legal")}</NavLink>
-    </>
-  )
-}
-
-
-const ExtraMainNavLinks = () => {
-  const {t} = useTranslation()
-  return (
-    <>
-      <NavLink className={navLinkStyle} to="aktionen">{t("nav.promo")}</NavLink>
-      <NavLink className={navLinkStyle} to="faq">{t("nav.faq")}</NavLink>
-      <NavLink className={navLinkStyle} to="datenschutz">{t("nav.data")}</NavLink>
-      <NavLink className={navLinkStyle} to="impressum">{t("nav.legal")}</NavLink>
-    </>
-  )
-}
-
-const MainNavLinks = ({toggleMainBarNav, isMainOpen}) => {
-  const {t} = useTranslation()
-  return (
-    <>
-      <NavLink className={navLinkStyle} to="/home" end>{t("nav.home")}</NavLink>
-      <NavLink className={navLinkStyle} to="tattoo">{t("nav.tattoo")}</NavLink>
-      <NavLink className={navLinkStyle} to="piercing">{t("nav.piercing")}</NavLink>
-      <NavLink className={navLinkStyle} to="contact">{t("nav.contact")}</NavLink>
-      <button className="cursor-pointer" onClick={toggleMainBarNav}>{isMainOpen ? <X /> : <Menu/>}</button>
-      {isMainOpen && 
-          <ExtraMainNavLinks />
-      }
     </>
   )
 }
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isMainOpen, setIsMainOpen] = useState(false)
-
-  const toggleMainNavbar = () => {
-    setIsMainOpen(!isMainOpen)
-  }
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen)
@@ -72,7 +36,7 @@ const Nav = () => {
     <>
       <nav className='flex w-1/3 justify-evenly'>
         <div className='hidden w-full justify-evenly gap-5 md:flex mr-5'>
-          <MainNavLinks toggleMainBarNav={toggleMainNavbar} isMainOpen={isMainOpen}/>
+          <NavLinks />
         </div>
         <div className='md:hidden'>
           <button onClick={toggleNavbar}>
