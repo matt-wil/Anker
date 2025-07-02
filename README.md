@@ -12,6 +12,9 @@ This is the frontend for the Anker Tattoo & Piercing Studio website, built with 
 - Custom animated transitions
 - Artist portfolio viewer
 - Admin-only CRUD pages (in progress)
+- Admin-only Calendar
+- Admin-only Kanban
+- Admin-only Bilder-hochladen (uploads an image to the cloudinary cloud storage)
 
 ---
 
@@ -23,7 +26,6 @@ This is the frontend for the Anker Tattoo & Piercing Studio website, built with 
 - Axios
 - Context API for auth
 - GSAP (scroll effects)
-- LocomotiveScroll (optional UX)
 
 ---
 
@@ -112,10 +114,17 @@ const api = axios.create({
 /home
 /home/tattoo
 /home/piercing
-/home/team
+/home/aktionen
+/home/contact
+/home/faq
+/home/impressum
+/home/datenschutz
 /login
 /signup
 /dashboard   ← protected
+/bilder-hochladen  ← protected
+/kanban  ← protected
+/kalendar  ← protected
 ```
 
 > Artist Gallery: `/artists/:artist_id/gallery`
